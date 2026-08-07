@@ -44,15 +44,9 @@
 
     <nav style="position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:26px clamp(20px,5vw,64px);">
       <div style="display:flex; align-items:center;">
-        <img src="assets/he-logo-hvit.png" alt="Höegh Eiendom" style="height:26px; width:auto; display:block; filter:drop-shadow(0 1px 8px rgba(20,12,8,0.45));">
+        <img src="assets/he-logo-hvit.png" alt="Höegh Eiendom" style="height:clamp(26px,7vw,34px); width:auto; display:block; filter:drop-shadow(0 1px 8px rgba(20,12,8,0.45));">
       </div>
       <div style="display:flex; align-items:center; gap:28px;">
-        <sc-if value="{{ showNavLinks }}" hint-placeholder-val="{{ true }}">
-          <a href="#arrangementer" style="color:#FBF4E7; font-weight:600; font-size:0.92rem; text-shadow:0 1px 8px rgba(20,12,8,0.55);">Arrangementer</a>
-        </sc-if>
-        <sc-if value="{{ showNavLinks }}" hint-placeholder-val="{{ true }}">
-          <a href="#prosjektet" style="color:#FBF4E7; font-weight:600; font-size:0.92rem; text-shadow:0 1px 8px rgba(20,12,8,0.55);">Prosjektet</a>
-        </sc-if>
         <button onClick="{{ goToForm }}" style="border:none; cursor:pointer; background:#F4EAD9; color:#3A231A; padding:11px 20px; border-radius:999px; font-weight:600; font-size:0.9rem;">Meld deg på</button>
       </div>
     </nav>
@@ -364,7 +358,6 @@ class Component extends DCLogic {
 
     return {
       goToForm, goToEvents, events, attendOptions, facts, features, sustainability,
-      showNavLinks: !this.state.isMobile,
       submitted: this.state.submitted,
       notSubmitted: !this.state.submitted,
       formRef: this.formRef,
