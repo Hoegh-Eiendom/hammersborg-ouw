@@ -2069,7 +2069,10 @@
 
     <div style="position:relative; z-index:2; margin-top:auto; padding:0 clamp(20px,5vw,64px) clamp(48px,7vw,84px); max-width:1360px;">
       <p style="display:inline-block; color:#FBEFDC; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; font-size:0.8rem; margin-bottom:20px; background:rgba(124,50,38,0.55); padding:7px 14px; border-radius:999px; backdrop-filter:blur(4px);">Oslo Urban Week 2026 · 22. september</p>
-      <h1 style="font-family:'Newsreader',serif; font-weight:400; color:#FBF4E7; font-size:clamp(2.35rem,6.4vw,5.4rem); line-height:1.03; letter-spacing:-0.015em; max-width:18ch; overflow-wrap:break-word; text-shadow:0 2px 22px rgba(20,12,8,0.4);">Velkommen til Hammersborgkvartalet</h1>
+      <!-- "Hammersborgkvartalet" er ett 20-tegns ord som ikke kan brekkes pent.
+           min(8.6vw, …) holder det på én linje ned til 320px skjermbredde;
+           over ~440px binder ikke leddet, så desktop-størrelsen er uendret. -->
+      <h1 style="font-family:'Newsreader',serif; font-weight:400; color:#FBF4E7; font-size:min(8.6vw,clamp(2.35rem,6.4vw,5.4rem)); line-height:1.03; letter-spacing:-0.015em; max-width:24ch; overflow-wrap:break-word; text-shadow:0 2px 22px rgba(20,12,8,0.4);">Hammersborgkvartalet</h1>
       <p style="color:#F6EEE0; font-size:clamp(1.05rem,1.6vw,1.4rem); line-height:1.55; max-width:56ch; margin-top:26px; text-shadow:0 1px 12px rgba(20,12,8,0.5);">Et nytt kapittel for Hammersborg er på vei. Vi inviterer naboer, lokale aktører og nysgjerrige inn til å se planene, møte folkene bak prosjektet og snakke om hvordan kvartalet kan bli en god del av nabolaget.</p>
       <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:34px;">
         <button onClick="{{ goToForm }}" style="border:none; cursor:pointer; background:#7C3226; color:#FBF4E7; padding:16px 30px; border-radius:999px; font-weight:600; font-size:1.02rem; box-shadow:0 12px 30px rgba(58,20,12,0.35);">Meld deg på</button>
