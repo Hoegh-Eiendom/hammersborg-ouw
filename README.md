@@ -9,16 +9,40 @@ Eier: Höegh Eiendom · Status: designprototype, klar for HubSpot-oppbygging
 
 | Sti | Hva |
 |---|---|
-| `index.html` | Hele siden som én selvstendig fil. Åpne i nettleser — ingen bygg, ingen avhengigheter. |
-| `src/Hammersborgkvartalet.dc.html` | Kildefil med all inline-CSS per seksjon. Rediger her. |
-| `src/support.js` | Runtime som kildefilen krever. |
+| `src/Hammersborgkvartalet.dc.html` | **Kildefil — rediger her.** All inline-CSS per seksjon. |
+| `src/support.js` | Runtime som kildefilen krever. Ikke rediger. |
 | `assets/` | Bilder (hentet fra prosjekt-PDF) og Höegh Eiendom-logo. |
+| `build.py` | Bygger `index.html` fra kilden. Kjøres etter hver endring. |
+| `index.html` | **Bygget fil — rediger aldri direkte.** Hele siden i én fil, virker uten nett. |
+| `docs/index.html` | Identisk kopi for GitHub Pages, skrives av samme bygg. |
 | `docs/HUBSPOT.md` | Implementeringsnotater for HubSpot: modul-kartlegging, skjema, designtokens. |
-| `docs/index.html` | Kopi for GitHub Pages. |
 
-## Se siden
+## Gjøre endringer
 
-Åpne `index.html` direkte i en nettleser.
+1. Rediger `src/Hammersborgkvartalet.dc.html`.
+2. Bygg:
+
+   ```bash
+   python3 build.py
+   ```
+
+   Skriver både `index.html` og `docs/index.html`. Bygget henter fonter og React
+   fra nett; `python3 build.py --no-fonts` hopper over det, men da krever den
+   ferdige fila nettilgang for typografi.
+3. Se resultatet: åpne `index.html` i nettleser.
+
+### Live forhåndsvisning mens du jobber
+
+```bash
+python3 -m http.server 8765
+```
+
+Åpne `http://localhost:8765/src/Hammersborgkvartalet.dc.html`. Da slipper du å
+bygge for hver småendring — bare last siden på nytt. Symlinken `src/assets`
+finnes bare for at bildene skal løses riktig i denne visningen.
+
+To 404-er på `{{ ev.img }}` og `{{ ft.img }}` i konsollen er ufarlige: nettleseren
+prøver å laste dem før runtime-en rekker å fylle inn malen.
 
 ## GitHub Pages
 
@@ -26,7 +50,8 @@ Settings → Pages → Source: `main` / mappe `/docs`. Siden blir liggende på
 `https://hoegh-eiendom.github.io/hammersborg-ouw/`.
 
 Merk: på privat repo krever Pages betalt GitHub-plan. Er repoet privat og dere
-ikke har det, del `index.html` som fil i stedet.
+ikke har det, del `index.html` som fil i stedet — den virker frittstående, uten
+nett og uten `assets/`-mappa ved siden av.
 
 ## Viktig om skjemaet
 
