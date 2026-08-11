@@ -47,7 +47,31 @@ modul bør ha redigerbare felt (tekst/bilde/lenke) så teamet kan oppdatere uten
 8. **Footer** – mørk. HE-logo, avsluttende CTA, kontakt-/arrangementsinfo.
 
 ## Påmeldingsskjema (VIKTIG)
-Skjemaet i prototypen er kun visuelt og **lagrer ingen data**. I HubSpot:
+
+**Status: opprettet og bygget inn.** Form-id `6b0bdd6e-28e1-4ea9-b6cf-c3553dcf5fdc`,
+portal 25006101, region eu1. Embed-en ligger i påmeldingsseksjonen i kildefila, og
+skjemaet rendres i en kryssdomene-iframe — utformingen settes derfor i HubSpots
+skjema-editor, ikke i CSS på siden.
+
+### Avvik som gjenstår å rette i HubSpot
+Verifisert i nettleser 11. august 2026:
+
+1. **«Jeg ønsker å delta på» er ikke påkrevd.** Skal være påkrevd — ingen skal
+   kunne melde seg på uten å velge arrangement.
+2. **Navn er ikke påkrevd.** Skal være påkrevd.
+3. **«Antall personer» er en nedtrekksliste uten standardverdi.** Skal være et
+   tallfelt med standardverdi 1 og minimum 1.
+4. **Samtykketeksten avviker.** Står som «Jeg godtar å motta annen kommunikasjon
+   fra Höegh Eiendom». Skal være: «Jeg samtykker til å bli kontaktet om
+   arrangementet og relatert informasjon fra Hammersborgkvartalet.»
+5. **Alternativ 2 heter «Ungdom først og minikonsert».** Arrangementskortet på
+   siden sier «Ungdom først». Velg én skrivemåte og bruk den begge steder.
+6. **Fonten i skjemaet er en generisk sans,** ikke Hanken Grotesk.
+
+Avkrysningene står korrekt umerket, og knappen heter «Send påmelding».
+
+### Opprinnelig spesifikasjon
+Beholdt som fasit for punktene over.
 - Lag et **HubSpot Form** med feltene: Navn, E-post, Antall personer,
   Avkrysning «ønsker å delta på» (Nabolagstreffet / Ungdom først),
   Samtykke (påkrevd avkrysning). Prototypen har ikke noe kommentarfelt.

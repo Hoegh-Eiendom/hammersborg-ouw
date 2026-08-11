@@ -103,52 +103,16 @@
   <!-- ===== PÅMELDING ===== -->
   <section id="paamelding" style="scroll-margin-top:24px; background:#7C3226; color:#F6EBDA; padding:clamp(44px,6vw,72px) clamp(20px,5vw,48px);">
     <div style="max-width:900px; margin:0 auto;">
-      <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
-        <div style="text-align:center; padding:clamp(30px,5vw,60px) 0;">
-          <div style="width:76px; height:76px; border-radius:50%; background:#F4EAD9; color:#7C3226; display:flex; align-items:center; justify-content:center; font-size:2.2rem; margin:0 auto 26px;">✓</div>
-          <h2 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(2rem,4vw,3rem); line-height:1.08;">Takk for påmeldingen!</h2>
-          <p style="font-size:1.15rem; line-height:1.6; max-width:44ch; margin:20px auto 0; opacity:0.9;">Vi gleder oss til å se deg under Oslo Urban Week. Du får en bekreftelse på e-post med praktisk informasjon.</p>
-          <button onClick="{{ resetForm }}" style="margin-top:32px; cursor:pointer; background:rgba(246,235,218,0.14); border:1px solid rgba(246,235,218,0.5); color:#F6EBDA; padding:13px 26px; border-radius:999px; font-weight:600;">Meld på flere</button>
-        </div>
-      </sc-if>
-      <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
-        <div>
-          <div style="display:flex; align-items:baseline; flex-wrap:wrap; gap:8px 16px; margin-bottom:22px;">
-            <h2 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(1.7rem,3.4vw,2.4rem); line-height:1.06;">Meld deg på</h2>
-            <p style="font-size:1rem; line-height:1.5; opacity:0.85;">Tar under ett minutt — helt uforpliktende.</p>
-          </div>
-          <form ref="{{ formRef }}" onSubmit="{{ onSubmit }}" style="background:#FBF5EA; color:#2A211B; border-radius:20px; padding:clamp(20px,3vw,30px); display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px 20px;">
-            <label style="display:flex; flex-direction:column; gap:8px; font-weight:600; font-size:0.9rem; color:#4A3C31;">Navn
-              <input name="navn" required placeholder="Ditt navn" style="border:1px solid #DFD0B9; background:#FFFDF8; border-radius:12px; padding:13px 15px; font-size:1rem; color:#2A211B; font-weight:400;">
-            </label>
-            <label style="display:flex; flex-direction:column; gap:8px; font-weight:600; font-size:0.9rem; color:#4A3C31;">E-post
-              <input name="epost" type="email" required placeholder="navn@epost.no" style="border:1px solid #DFD0B9; background:#FFFDF8; border-radius:12px; padding:13px 15px; font-size:1rem; color:#2A211B; font-weight:400;">
-            </label>
-            <label style="display:flex; flex-direction:column; gap:8px; font-weight:600; font-size:0.9rem; color:#4A3C31;">Antall personer
-              <input name="antall" type="number" min="1" value="1" style="border:1px solid #DFD0B9; background:#FFFDF8; border-radius:12px; padding:13px 15px; font-size:1rem; color:#2A211B; font-weight:400;">
-            </label>
+      <div style="display:flex; align-items:baseline; flex-wrap:wrap; gap:8px 16px; margin-bottom:22px;">
+        <h2 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(1.7rem,3.4vw,2.4rem); line-height:1.06;">Meld deg på</h2>
+        <p style="font-size:1rem; line-height:1.5; opacity:0.85;">Tar under ett minutt — helt uforpliktende.</p>
+      </div>
 
-            <fieldset style="grid-column:1/-1; border:1px solid #E4D6C0; border-radius:14px; padding:14px 16px; margin:0;">
-              <legend style="font-weight:600; font-size:0.9rem; color:#4A3C31; padding:0 8px;">Jeg ønsker å delta på</legend>
-              <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:4px;">
-                <sc-for list="{{ attendOptions }}" as="opt" hint-placeholder-count="2">
-                  <label style="display:flex; align-items:center; gap:10px; background:{{ opt.bg }}; border:1px solid {{ opt.border }}; border-radius:999px; padding:11px 18px; cursor:pointer; font-weight:600; font-size:0.95rem; color:{{ opt.ink }};">
-                    <input type="checkbox" checked="{{ opt.checked }}" onChange="{{ opt.onToggle }}" style="width:17px; height:17px; accent-color:#7C3226;">
-                    {{ opt.label }}
-                  </label>
-                </sc-for>
-              </div>
-            </fieldset>
-
-            <label style="grid-column:1/-1; display:flex; align-items:flex-start; gap:12px; font-size:0.9rem; color:#4A3C31; line-height:1.45;">
-              <input name="samtykke" type="checkbox" required style="width:18px; height:18px; margin-top:1px; accent-color:#7C3226;">
-              <span>Jeg samtykker til å bli kontaktet om arrangementet og relatert informasjon fra Hammersborgkvartalet.</span>
-            </label>
-
-            <button type="submit" style="grid-column:1/-1; justify-self:start; cursor:pointer; border:none; background:#7C3226; color:#FBF4E7; padding:14px 32px; border-radius:999px; font-weight:600; font-size:1.02rem;">Send påmelding</button>
-          </form>
-        </div>
-      </sc-if>
+      <!-- Ekte HubSpot-skjema (portal 25006101). Rendres i en kryssdomene-iframe,
+           så CSS herfra når ikke inn i skjemaet — utformingen settes i HubSpot.
+           Krever nett: uten tilkobling vises ingenting her. -->
+      <script src="https://js-eu1.hsforms.net/forms/embed/25006101.js" defer></script>
+      <div class="hs-form-frame" data-region="eu1" data-form-id="6b0bdd6e-28e1-4ea9-b6cf-c3553dcf5fdc" data-portal-id="25006101"></div>
     </div>
   </section>
 
@@ -276,20 +240,16 @@
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;defaultAttendance&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Ingen&quot;,&quot;Nabolagstreff&quot;,&quot;Ungdom først&quot;,&quot;Begge&quot;],&quot;default&quot;:&quot;Ingen&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Påmelding&quot;},&quot;stickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mobil&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;stickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mobil&quot;}}">
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    // 'Ingen' som standard: mottakeren skal velge arrangement selv, ingen
-    // avkrysning skal være satt på forhånd.
-    const def = (props && props.defaultAttendance) || 'Ingen';
+    // Skjemaet er et ekte HubSpot-skjema; innsending og takkemelding håndteres
+    // der. Prototypen trenger derfor bare å vite om vi er på mobil, for den
+    // klebrige CTA-en.
     this.state = {
-      submitted: false,
-      attendNabolag: def === 'Begge' || def === 'Nabolagstreff',
-      attendUngdom: def === 'Begge' || def === 'Ungdom først',
       isMobile: typeof window !== 'undefined' ? window.innerWidth < 760 : false,
     };
-    this.formRef = React.createRef();
     this._onResize = this._onResize.bind(this);
   }
 
@@ -328,17 +288,6 @@ class Component extends DCLogic {
       },
     ];
 
-    const mk = (on) => ({
-      bg: on ? '#7C3226' : '#FBF5EA',
-      border: on ? '#7C3226' : '#DFD0B9',
-      ink: on ? '#FBF4E7' : '#4A3C31',
-    });
-    const attendOptions = [
-      Object.assign({ label: 'Nabolagstreffet', checked: this.state.attendNabolag,
-        onToggle: () => this.setState(s => ({ attendNabolag: !s.attendNabolag })) }, mk(this.state.attendNabolag)),
-      Object.assign({ label: 'Ungdom først', checked: this.state.attendUngdom,
-        onToggle: () => this.setState(s => ({ attendUngdom: !s.attendUngdom })) }, mk(this.state.attendUngdom)),
-    ];
 
     const facts = [
       { value: '23 000 m²', label: 'Kontor og utadrettet virksomhet' },
@@ -363,13 +312,8 @@ class Component extends DCLogic {
     ];
 
     return {
-      goToForm, goToEvents, events, attendOptions, facts, features, sustainability,
-      submitted: this.state.submitted,
-      notSubmitted: !this.state.submitted,
-      formRef: this.formRef,
-      onSubmit: (e) => { e.preventDefault(); this.setState({ submitted: true }); this._scrollTo('paamelding'); },
-      resetForm: () => this.setState({ submitted: false }),
-      showSticky: (this.props.stickyCta ?? true) && this.state.isMobile && !this.state.submitted,
+      goToForm, goToEvents, events, facts, features, sustainability,
+      showSticky: (this.props.stickyCta ?? true) && this.state.isMobile,
     };
   }
 }

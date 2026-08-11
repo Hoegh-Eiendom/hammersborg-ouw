@@ -55,9 +55,16 @@ nett og uten `assets/`-mappa ved siden av.
 
 ## Viktig om skjemaet
 
-Påmeldingsskjemaet i prototypen er **kun visuelt og lagrer ingen data**. Ved
-oppbygging i HubSpot må det erstattes med et ekte HubSpot Form — se
-`docs/HUBSPOT.md`.
+Påmeldingsskjemaet er et **ekte HubSpot-skjema** (portal 25006101, form-id
+`6b0bdd6e-…`). Innsendinger havner i Höegh Eiendoms CRM. Åpner du siden og sender
+inn, opprettes en reell kontakt.
+
+To konsekvenser:
+
+- **Skjemaet krever nettilgang.** Resten av siden virker uten nett, men
+  skjemaseksjonen står tom uten tilkobling.
+- **Utformingen av skjemaet settes i HubSpot,** ikke her. Det rendres i en
+  kryssdomene-iframe, så CSS fra siden når ikke inn. Se `docs/hubspot-form.css`.
 
 ## Arbeidsflyt
 

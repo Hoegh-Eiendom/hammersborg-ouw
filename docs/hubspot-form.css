@@ -2,6 +2,20 @@
    Hammersborgkvartalet — styling av HubSpot-skjemaet
    ===========================================================================
 
+   ⚠️  GJELDER IKKE SKJEMAET SOM ER I BRUK NÅ
+
+   Skjemaet på siden (form-id 6b0bdd6e-28e1-4ea9-b6cf-c3553dcf5fdc) bruker
+   HubSpots nye embed, som rendrer i en kryssdomene-iframe. Sidens DOM får
+   verken <form> eller <input>, og ingen CSS herfra kommer inn. Utformingen av
+   det skjemaet settes i HubSpots egen skjema-editor.
+
+   Testet: både det nye embed-formatet og det gamle v2-formatet
+   (hbspt.forms.create) rendrer dette skjemaet i iframe.
+
+   Reglene under er beholdt fordi de virker mot skjemaer som rendres i sidens
+   DOM — eldre HubSpot-skjemaer, eller om HubSpot senere tilbyr det igjen.
+   Unntaket er `.hk-paamelding`, som ligger utenfor iframen og fortsatt gjelder.
+
    Får HubSpot-skjemaet til å se ut som skjemaet i prototypen. Alle verdier er
    hentet direkte fra src/Hammersborgkvartalet.dc.html — endres prototypen, må
    de oppdateres her også.
