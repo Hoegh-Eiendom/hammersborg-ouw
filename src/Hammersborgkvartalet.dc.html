@@ -129,11 +129,15 @@
       </div>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); gap:36px 32px; margin-top:clamp(40px,5vw,60px); padding-top:clamp(32px,4vw,44px); border-top:1px solid #D9C7AC;">
+    <!-- Seks nøkkeltall i to rader med tre. minmax(300px,…) er valgt slik at
+         tre kolonner får plass i seksjonens 1084px, mens fire ikke gjør det —
+         da faller de 3 + 3 uten media-spørring. Under ~750px blir det to per
+         rad, og på mobil én. -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:44px 32px; margin-top:clamp(40px,5vw,60px); padding-top:clamp(32px,4vw,44px); border-top:1px solid #D9C7AC;">
       <sc-for list="{{ facts }}" as="f" hint-placeholder-count="6">
         <div>
-          <div style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(1.9rem,3vw,2.6rem); line-height:1; color:#7C3226; margin-bottom:10px;">{{ f.value }}</div>
-          <div style="color:#6B5D50; font-size:0.9rem; line-height:1.45;">{{ f.label }}</div>
+          <div style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(2.2rem,3.6vw,3.2rem); line-height:1.02; color:#7C3226; margin-bottom:12px;">{{ f.value }}</div>
+          <div style="color:#6B5D50; font-size:1rem; line-height:1.45;">{{ f.label }}</div>
         </div>
       </sc-for>
     </div>
