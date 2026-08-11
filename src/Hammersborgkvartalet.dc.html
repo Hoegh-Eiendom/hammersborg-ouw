@@ -26,6 +26,15 @@
   input, textarea, select, button { font-family: inherit; }
   ::selection { background: #E9C9BC; }
   @keyframes riseIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+  /* Sidens mål for bredde og luft. Skru på disse fire framfor å endre
+     seksjonene enkeltvis — de brukes overalt via var(). */
+  :root {
+    --hk-bredde:    1320px;                  /* innholdsbredde per seksjon */
+    --hk-seksjon-x: clamp(20px, 5vw, 48px);  /* sidemarg */
+    --hk-seksjon-y: clamp(72px, 10vw, 140px);/* luft over og under seksjoner */
+    --hk-kort-gap:  40px;                    /* avstand mellom kort i rutenett */
+  }
   /* "Miljøbevisst modernisering — med nabolaget på laget" trenger 580px for å
      falle på to linjer. Den symmetriske auto-fit-grid-en gir tekstkolonnen
      562px, så den brekker til tre. Biasen slår inn først fra 1240px, der den
@@ -60,7 +69,7 @@
       </div>
     </nav>
 
-    <div style="position:relative; z-index:2; margin-top:auto; padding:0 clamp(20px,5vw,64px) clamp(48px,7vw,84px); max-width:1360px;">
+    <div style="position:relative; z-index:2; margin-top:auto; padding:0 clamp(20px,5vw,64px) clamp(48px,7vw,84px); max-width:1500px;">
       <p style="display:inline-block; color:#FBEFDC; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; font-size:0.95rem; margin-bottom:20px; background:rgba(124,50,38,0.55); padding:10px 18px; border-radius:999px; backdrop-filter:blur(4px);">Oslo Urban Week 2026 · 22. september</p>
       <!-- "Hammersborgkvartalet" er ett 20-tegns ord som ikke kan brekkes pent.
            min(8.6vw, …) holder det på én linje ned til 320px skjermbredde;
@@ -75,13 +84,13 @@
   </header>
 
   <!-- ===== ARRANGEMENTER ===== -->
-  <section id="arrangementer" style="max-width:1180px; margin:0 auto; padding:clamp(64px,9vw,120px) clamp(20px,5vw,48px) clamp(40px,5vw,60px);">
+  <section id="arrangementer" style="max-width:var(--hk-bredde); margin:0 auto; padding:var(--hk-seksjon-y) var(--hk-seksjon-x) clamp(48px,6vw,72px);">
     <div style="max-width:48ch; margin-bottom:40px;">
       <p style="color:#9A5A3E; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; font-size:0.8rem; margin-bottom:14px;">To arrangementer</p>
       <h2 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(2rem,3.8vw,3.1rem); line-height:1.06; letter-spacing:-0.01em; text-wrap:balance;">Kom innom under Oslo Urban Week</h2>
     </div>
 
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:24px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:var(--hk-kort-gap);">
       <sc-for list="{{ events }}" as="ev" hint-placeholder-count="2">
         <article style="background:#FBF5EA; border:1px solid #E4D6C0; border-radius:22px; overflow:hidden; display:flex; flex-direction:column;">
           <div style="position:relative; aspect-ratio:16/10; overflow:hidden;">
@@ -101,7 +110,7 @@
   </section>
 
   <!-- ===== PÅMELDING ===== -->
-  <section id="paamelding" style="scroll-margin-top:24px; background:#7C3226; color:#F6EBDA; padding:clamp(44px,6vw,72px) clamp(20px,5vw,48px);">
+  <section id="paamelding" style="scroll-margin-top:24px; background:#7C3226; color:#F6EBDA; padding:clamp(52px,7vw,88px) var(--hk-seksjon-x);">
     <div style="max-width:900px; margin:0 auto;">
       <div style="display:flex; align-items:baseline; flex-wrap:wrap; gap:8px 16px; margin-bottom:22px;">
         <h2 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(1.7rem,3.4vw,2.4rem); line-height:1.06;">Meld deg på</h2>
@@ -117,7 +126,7 @@
   </section>
 
   <!-- ===== PROSJEKTET ===== -->
-  <section id="prosjektet" style="max-width:1180px; margin:0 auto; padding:clamp(64px,9vw,116px) clamp(20px,5vw,48px);">
+  <section id="prosjektet" style="max-width:var(--hk-bredde); margin:0 auto; padding:var(--hk-seksjon-y) var(--hk-seksjon-x);">
     <div style="display:flex; flex-wrap:wrap; gap:clamp(32px,5vw,64px); align-items:center;">
       <div style="flex:5 1 260px; min-width:0;">
         <p style="color:#9A5A3E; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; font-size:0.8rem; margin-bottom:16px;">Kort om prosjektet</p>
@@ -144,13 +153,13 @@
   </section>
 
   <!-- ===== HVA SKJER ===== -->
-  <section style="background:#EADCC5; padding:clamp(64px,9vw,116px) clamp(20px,5vw,48px);">
-    <div style="max-width:1180px; margin:0 auto;">
+  <section style="background:#EADCC5; padding:var(--hk-seksjon-y) var(--hk-seksjon-x);">
+    <div style="max-width:var(--hk-bredde); margin:0 auto;">
       <div style="max-width:74ch; margin-bottom:44px;">
         <p style="color:#9A5A3E; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; font-size:0.8rem; margin-bottom:14px;">Hva skjer i kvartalet</p>
         <h2 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(2rem,3.8vw,3.1rem); line-height:1.06; letter-spacing:-0.01em; text-wrap:balance;">Nye forbindelser, møteplasser og liv på gateplan</h2>
       </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:22px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:var(--hk-kort-gap);">
         <sc-for list="{{ features }}" as="ft" hint-placeholder-count="4">
           <article style="background:#FBF5EA; border-radius:20px; overflow:hidden; border:1px solid #E1D2BA;">
             <div style="aspect-ratio:4/3; overflow:hidden;">
@@ -167,7 +176,7 @@
   </section>
 
   <!-- ===== NABOLAGET ===== -->
-  <section style="max-width:1180px; margin:0 auto; padding:clamp(64px,9vw,116px) clamp(20px,5vw,48px);">
+  <section style="max-width:var(--hk-bredde); margin:0 auto; padding:var(--hk-seksjon-y) var(--hk-seksjon-x);">
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(32px,5vw,60px); align-items:center;">
       <div style="border-radius:22px; overflow:hidden; border:1px solid #E4D6C0;">
         <img src="assets/img03.jpg" alt="Hammersborg i Oslo sentrum" style="width:100%; display:block;">
@@ -186,8 +195,8 @@
   </section>
 
   <!-- ===== BÆREKRAFT ===== -->
-  <section style="background:#DCE1D2; color:#2A2E23; padding:clamp(64px,9vw,116px) clamp(20px,5vw,48px);">
-    <div style="max-width:1180px; margin:0 auto;">
+  <section style="background:#DCE1D2; color:#2A2E23; padding:var(--hk-seksjon-y) var(--hk-seksjon-x);">
+    <div style="max-width:var(--hk-bredde); margin:0 auto;">
       <div class="baerekraft-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(32px,5vw,56px); align-items:center; margin-bottom:clamp(40px,5vw,56px);">
         <div style="border-radius:22px; overflow:hidden; border:1px solid #C4CBB4;">
           <img src="assets/img13.jpg" alt="Sirkelhagen" style="width:100%; height:100%; object-fit:cover; display:block; aspect-ratio:4/3;">
@@ -198,7 +207,7 @@
           <p style="color:#4A503E; font-size:1.08rem; line-height:1.6; margin-top:18px;">Hammersborgkvartalet skal være et FutureBuilt-forbildeprosjekt som viser hvordan transformasjon i indre by kan kombinere bevaring, ombruk og sosial bærekraft.</p>
         </div>
       </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:var(--hk-kort-gap);">
         <sc-for list="{{ sustainability }}" as="s" hint-placeholder-count="3">
           <div style="background:#F3F5EC; border:1px solid #CDD3BE; border-radius:18px; padding:26px 24px;">
             <h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:1.25rem; margin-bottom:12px; color:#3A4030;">{{ s.title }}</h3>
@@ -210,8 +219,8 @@
   </section>
 
   <!-- ===== SLUTT-CTA / FOOTER ===== -->
-  <footer style="background:#2A211B; color:#E9DECB; padding:clamp(60px,8vw,100px) clamp(20px,5vw,48px) clamp(40px,5vw,56px);">
-    <div style="max-width:1180px; margin:0 auto;">
+  <footer style="background:#2A211B; color:#E9DECB; padding:clamp(68px,9vw,120px) var(--hk-seksjon-x) clamp(48px,6vw,68px);">
+    <div style="max-width:var(--hk-bredde); margin:0 auto;">
       <div style="display:flex; flex-direction:column; align-items:center; border-bottom:1px solid rgba(233,222,203,0.16); padding-bottom:clamp(48px,6vw,72px);">
         <img src="assets/he-logo-hvit.png" alt="Höegh Eiendom" style="height:30px; width:auto; margin-bottom:28px; opacity:0.95;">
         <h2 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(2rem,4.4vw,3.4rem); line-height:1.06; max-width:20ch; margin:0 auto 24px; text-align:center;">Vi vil gjerne bli bedre kjent med naboene våre</h2>
