@@ -115,6 +115,13 @@ Google Maps-innbygging (iframe med `/maps/embed?pb=…`, adresse Akersgata 73, 0
 Ligger i Nabolaget-seksjonen. Kopier iframe-src fra kildefilen. Merk: den enkle
 `output=embed`-varianten blokkeres i noen sandkasser – bruk `/maps/embed?pb=`-formen.
 
+Karttypen styres av `5e`-parameteren inne i `pb`-strengen — den trenger man ikke
+regenerere embed-koden for å endre:
+
+- `5e0` – standard kart. **Dette er valgt.**
+- `5e1` – satellitt/earth
+- `5e2` – terreng (i praksis lik standard i bysentrum)
+
 ## Designtokens
 Farger:
 - Krem bakgrunn: `#F1E7D6` · lys kort: `#FBF5EA` · sekundær flate: `#EADCC5`

@@ -75,11 +75,8 @@ her oppdaterer ikke den publiserte siden automatisk.
 
 ## Bilderettigheter
 
-Bildene er hentet fra prosjektets presentasjon. Fotnoten krediterer dem som
-«Illustrasjonsfoto – Höegh Eiendom 2026».
+**Avklart:** Höegh Eiendom eier bildene selv. De kan brukes offentlig.
 
-Krediteringen er en merking, ikke en klarering: den sier hvem bildene tilhører og
-at de viser et uoppført prosjekt, men den bekrefter ikke i seg selv at de kan
-brukes offentlig. Er noen av illustrasjonene laget av eksternt arkitekt- eller
-visualiseringsbyrå, kan byrået ha rett på egen kreditering. Sjekk internt før
-siden publiseres.
+Fotnoten krediterer dem som «Illustrasjonsfoto – Höegh Eiendom 2026».
+«Illustrasjonsfoto» er med av en grunn: bildene viser et uoppført prosjekt, og
+merkingen hindrer at de leses som foto av noe som står der i dag.
