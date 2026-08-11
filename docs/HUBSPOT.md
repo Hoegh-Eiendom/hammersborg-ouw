@@ -11,11 +11,12 @@ oppførsel. Det er **ikke** produksjonskode som skal limes rett inn. Oppgaven er
 dette designet i HubSpot** med CMS-moduler (HubL) og et ekte HubSpot-skjema, slik at
 markedsteamet kan redigere innhold selv.
 
-- `hammersborg-onepager-standalone.html` – hele siden som én selvstendig fil (åpne i nettleser
-  for å se ferdig design, alle bilder/fonter inkludert). Bruk denne som «fasit» på utseende.
-- `source/Hammersborgkvartalet.dc.html` – kildemarkup med all inline-CSS per seksjon. Herfra
+- `index.html` – hele siden som én selvstendig fil (åpne i nettleser for å se ferdig
+  design, alle bilder/fonter inkludert). Bruk denne som «fasit» på utseende.
+  Bygget fra kilden med `python3 build.py` — rediger den aldri direkte.
+- `src/Hammersborgkvartalet.dc.html` – kildemarkup med all inline-CSS per seksjon. Herfra
   henter du eksakte farger, spacing, fontstørrelser og struktur.
-- `source/assets/` – alle bilder (hentet fra prosjektets presentasjons-PDF) og HE-logo.
+- `assets/` – alle bilder (hentet fra prosjektets presentasjons-PDF) og HE-logo.
 
 ## Fidelity
 **Høy (hi-fi).** Endelige farger, typografi, spacing og interaksjoner. Gjenskap pikselnært.
@@ -39,8 +40,8 @@ modul bør ha redigerbare felt (tekst/bilde/lenke) så teamet kan oppdatere uten
 ## Påmeldingsskjema (VIKTIG)
 Skjemaet i prototypen er kun visuelt og **lagrer ingen data**. I HubSpot:
 - Lag et **HubSpot Form** med feltene: Navn, E-post, Antall personer,
-  Avkrysning «ønsker å delta på» (Nabolagstreffet / Ungdom først), Kommentar (valgfritt),
-  Samtykke (påkrevd avkrysning).
+  Avkrysning «ønsker å delta på» (Nabolagstreffet / Ungdom først),
+  Samtykke (påkrevd avkrysning). Prototypen har ikke noe kommentarfelt.
 - Telefon er bevisst utelatt. Ikke legg det inn.
 - «Ønsker å delta på» skal stå **uten** forhåndsavkrysning. Påmelderen velger selv.
 - **Validering må bygges i HubSpot.** Kildefilen setter `required` på Navn, E-post
@@ -51,25 +52,26 @@ Skjemaet i prototypen er kun visuelt og **lagrer ingen data**. I HubSpot:
   seg på uten å velge arrangement. I HubSpot settes dette ved å gjøre
   avkrysningsgruppa til et påkrevd felt.
 
-### Styling
-`docs/hubspot-brief.md` er en ferdig brief å lime inn i HubSpots AI-assistent.
-`docs/hubspot-form.css` gir HubSpot-skjemaet samme utseende som prototypen —
-grid med tre felt på én linje, pillene for arrangementsvalg, knapp og
-feilmeldinger. Verdiene er hentet fra kildefila; endres designet der, må CSS-en
-oppdateres tilsvarende.
+- Legg skjemaet inn i påmeldingsseksjonen via HubSpots skjema-modul.
+- «Meld deg på»-knappene i hero/arrangementer/footer skal scrolle til skjemaseksjonen
+  (anker-lenke til seksjonens id).
 
-Fila er testet mot HubSpots standard-markup på 1332px og 375px. Klassenavnene er
+### Ferdig brief og styling
+`docs/hubspot-brief.md` er en ferdig tekst å lime rett inn i HubSpots
+AI-assistent: felt, rekkefølge, påkrevd-regler, ordrett samtykketekst,
+knappetekst og bekreftelsesmelding.
+
+`docs/hubspot-form.css` gir skjemaet samme utseende som prototypen — grid med tre
+felt på én linje, pillene for arrangementsvalg, knapp og feilmeldinger. Verdiene
+er hentet fra kildefila; endres designet der, må CSS-en oppdateres tilsvarende.
+
+CSS-en er testet mot HubSpots standard-markup på 1332px og 375px. Klassenavnene er
 HubSpots vanlige (`.hs-form`, `.hs-input`, `.hs-form-checkbox`, `.hs-button`),
 men markup varierer mellom HubSpot-versjoner — stemmer ikke en selektor, inspiser
 det faktiske skjemaet og juster.
 
 Rendres skjemaet i en `<iframe>`, når CSS fra siden det ikke. Sjekk det først om
 stilen ikke slår inn.
-- Legg skjemaet inn i påmeldingsseksjonen via HubSpots skjema-modul.
-- Style skjemaet så det matcher prototypen: lys krem bakgrunn (`#FBF5EA`), avrundede felt,
-  teglrød send-knapp (`#7C3226`). Bruk HubSpots skjema-CSS eller egen CSS på siden.
-- «Meld deg på»-knappene i hero/arrangementer/footer skal scrolle til skjemaseksjonen
-  (anker-lenke til seksjonens id).
 
 ## Kart
 Google Maps-innbygging (iframe med `/maps/embed?pb=…`, adresse Akersgata 73, 0180 Oslo).
