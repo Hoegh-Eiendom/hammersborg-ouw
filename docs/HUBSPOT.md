@@ -116,3 +116,6 @@ Bekreft med Höegh Eiendom at bildene kan brukes offentlig på publisert side.
 - Etterpå: små tekst-/bildeendringer gjøres i HubSpot. Større redesign prototypes her først,
   deretter porteres til HubSpot. Denne filen er ikke koblet til HubSpot – endringer her
   oppdaterer ikke den publiserte siden automatisk.
+
+`docs/hubspot-form-api.md` — alternativ: opprett egenskapene og skjemaet via
+HubSpots API i stedet for manuelt. Krever et private app token.
