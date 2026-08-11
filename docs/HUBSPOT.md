@@ -38,9 +38,10 @@ modul bør ha redigerbare felt (tekst/bilde/lenke) så teamet kan oppdatere uten
 
 ## Påmeldingsskjema (VIKTIG)
 Skjemaet i prototypen er kun visuelt og **lagrer ingen data**. I HubSpot:
-- Lag et **HubSpot Form** med feltene: Navn, E-post, Telefon (valgfritt), Antall personer,
+- Lag et **HubSpot Form** med feltene: Navn, E-post, Antall personer,
   Avkrysning «ønsker å delta på» (Nabolagstreffet / Ungdom først), Kommentar (valgfritt),
   Samtykke (påkrevd avkrysning).
+- Telefon er bevisst utelatt. Ikke legg det inn.
 - Legg skjemaet inn i påmeldingsseksjonen via HubSpots skjema-modul.
 - Style skjemaet så det matcher prototypen: lys krem bakgrunn (`#FBF5EA`), avrundede felt,
   teglrød send-knapp (`#7C3226`). Bruk HubSpots skjema-CSS eller egen CSS på siden.
