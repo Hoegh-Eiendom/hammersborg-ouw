@@ -52,6 +52,7 @@ Skjemaet i prototypen er kun visuelt og **lagrer ingen data**. I HubSpot:
   avkrysningsgruppa til et påkrevd felt.
 
 ### Styling
+`docs/hubspot-brief.md` er en ferdig brief å lime inn i HubSpots AI-assistent.
 `docs/hubspot-form.css` gir HubSpot-skjemaet samme utseende som prototypen —
 grid med tre felt på én linje, pillene for arrangementsvalg, knapp og
 feilmeldinger. Verdiene er hentet fra kildefila; endres designet der, må CSS-en
