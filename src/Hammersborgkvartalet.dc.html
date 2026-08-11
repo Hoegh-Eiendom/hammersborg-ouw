@@ -61,7 +61,7 @@
     </nav>
 
     <div style="position:relative; z-index:2; margin-top:auto; padding:0 clamp(20px,5vw,64px) clamp(48px,7vw,84px); max-width:1360px;">
-      <p style="display:inline-block; color:#FBEFDC; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; font-size:0.8rem; margin-bottom:20px; background:rgba(124,50,38,0.55); padding:7px 14px; border-radius:999px; backdrop-filter:blur(4px);">Oslo Urban Week 2026 · 22. september</p>
+      <p style="display:inline-block; color:#FBEFDC; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; font-size:0.95rem; margin-bottom:20px; background:rgba(124,50,38,0.55); padding:10px 18px; border-radius:999px; backdrop-filter:blur(4px);">Oslo Urban Week 2026 · 22. september</p>
       <!-- "Hammersborgkvartalet" er ett 20-tegns ord som ikke kan brekkes pent.
            min(8.6vw, …) holder det på én linje ned til 320px skjermbredde;
            over ~440px binder ikke leddet, så desktop-størrelsen er uendret. -->
@@ -86,7 +86,7 @@
         <article style="background:#FBF5EA; border:1px solid #E4D6C0; border-radius:22px; overflow:hidden; display:flex; flex-direction:column;">
           <div style="position:relative; aspect-ratio:16/10; overflow:hidden;">
             <img src="{{ ev.img }}" alt="{{ ev.title }}" style="width:100%; height:100%; object-fit:cover;">
-            <span style="position:absolute; top:16px; left:16px; background:{{ ev.badgeBg }}; color:{{ ev.badgeInk }}; padding:7px 14px; border-radius:999px; font-weight:600; font-size:0.78rem; letter-spacing:0.04em;">{{ ev.tag }}</span>
+            <span style="position:absolute; top:16px; left:16px; background:{{ ev.badgeBg }}; color:{{ ev.badgeInk }}; padding:11px 20px; border-radius:999px; font-weight:600; font-size:0.95rem; letter-spacing:0.04em;">{{ ev.tag }}</span>
           </div>
           <div style="padding:28px clamp(22px,3vw,32px) 30px; display:flex; flex-direction:column; flex:1;">
             <div style="display:flex; align-items:center; gap:10px; color:#9A5A3E; font-weight:600; font-size:0.9rem; margin-bottom:12px;">
@@ -312,14 +312,14 @@ class Component extends DCLogic {
     const events = [
       {
         tag: 'Nabolagstreff', badgeBg: '#7C3226', badgeInk: '#FBF4E7',
-        time: 'Kl. 16:00–18:00', place: 'Storsalen, Tempelet',
+        time: 'Kl. 16:00–18:00', place: 'Kommandør T. I. Øgrims plass 4',
         title: 'Bli kjent med planene',
         desc: 'Uformelt nabolagstreff der naboer og lokale aktører kan se illustrasjoner, møte prosjektteamet, stille spørsmål og bli bedre kjent med planene.',
         img: 'assets/img29.jpg',
       },
       {
         tag: 'Samtale & konsert', badgeBg: '#71806A', badgeInk: '#FBF4E7',
-        time: 'Kl. 18:00–19:30', place: 'Storsalen, Tempelet',
+        time: 'Kl. 18:00–19:30', place: 'Kommandør T. I. Øgrims plass 4',
         title: 'Ungdom først',
         desc: 'Samtale og foredrag om ungdom, tilhørighet og inkluderende byrom, i samarbeid med Centrum Tigers og Høegh Eiendom. Kvelden avsluttes med en intimkonsert med en hemmelig artist.',
         img: 'assets/img07.jpg',
