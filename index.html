@@ -2286,11 +2286,13 @@
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;defaultAttendance&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Nabolagstreff&quot;,&quot;Ungdom først&quot;,&quot;Begge&quot;],&quot;default&quot;:&quot;Begge&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Påmelding&quot;},&quot;stickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mobil&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;defaultAttendance&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Ingen&quot;,&quot;Nabolagstreff&quot;,&quot;Ungdom først&quot;,&quot;Begge&quot;],&quot;default&quot;:&quot;Ingen&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Påmelding&quot;},&quot;stickyCta&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Mobil&quot;}}">
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    const def = (props && props.defaultAttendance) || 'Begge';
+    // 'Ingen' som standard: mottakeren skal velge arrangement selv, ingen
+    // avkrysning skal være satt på forhånd.
+    const def = (props && props.defaultAttendance) || 'Ingen';
     this.state = {
       submitted: false,
       attendNabolag: def === 'Begge' || def === 'Nabolagstreff',

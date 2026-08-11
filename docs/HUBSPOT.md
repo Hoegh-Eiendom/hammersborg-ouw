@@ -42,6 +42,13 @@ Skjemaet i prototypen er kun visuelt og **lagrer ingen data**. I HubSpot:
   Avkrysning «ønsker å delta på» (Nabolagstreffet / Ungdom først), Kommentar (valgfritt),
   Samtykke (påkrevd avkrysning).
 - Telefon er bevisst utelatt. Ikke legg det inn.
+- «Ønsker å delta på» skal stå **uten** forhåndsavkrysning. Påmelderen velger selv.
+- **Validering må bygges i HubSpot.** Kildefilen setter `required` på Navn, E-post
+  og Samtykke, men x-dc-runtimen fjerner attributtet — i prototypen validerer
+  skjemaet ingenting (`form.checkValidity()` gir `true` på et tomt skjema).
+  Samtykke må være påkrevd i HubSpot-skjemaet.
+- Vurder om minst én av «ønsker å delta på» skal være påkrevd. Slik skjemaet står
+  nå, kan noen melde seg på uten å velge arrangement.
 - Legg skjemaet inn i påmeldingsseksjonen via HubSpots skjema-modul.
 - Style skjemaet så det matcher prototypen: lys krem bakgrunn (`#FBF5EA`), avrundede felt,
   teglrød send-knapp (`#7C3226`). Bruk HubSpots skjema-CSS eller egen CSS på siden.
