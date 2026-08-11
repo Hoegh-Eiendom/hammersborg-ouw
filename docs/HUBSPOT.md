@@ -47,8 +47,23 @@ Skjemaet i prototypen er kun visuelt og **lagrer ingen data**. I HubSpot:
   og Samtykke, men x-dc-runtimen fjerner attributtet — i prototypen validerer
   skjemaet ingenting (`form.checkValidity()` gir `true` på et tomt skjema).
   Samtykke må være påkrevd i HubSpot-skjemaet.
-- Vurder om minst én av «ønsker å delta på» skal være påkrevd. Slik skjemaet står
-  nå, kan noen melde seg på uten å velge arrangement.
+- **Minst én av «ønsker å delta på» skal være påkrevd.** Ingen skal kunne melde
+  seg på uten å velge arrangement. I HubSpot settes dette ved å gjøre
+  avkrysningsgruppa til et påkrevd felt.
+
+### Styling
+`docs/hubspot-form.css` gir HubSpot-skjemaet samme utseende som prototypen —
+grid med tre felt på én linje, pillene for arrangementsvalg, knapp og
+feilmeldinger. Verdiene er hentet fra kildefila; endres designet der, må CSS-en
+oppdateres tilsvarende.
+
+Fila er testet mot HubSpots standard-markup på 1332px og 375px. Klassenavnene er
+HubSpots vanlige (`.hs-form`, `.hs-input`, `.hs-form-checkbox`, `.hs-button`),
+men markup varierer mellom HubSpot-versjoner — stemmer ikke en selektor, inspiser
+det faktiske skjemaet og juster.
+
+Rendres skjemaet i en `<iframe>`, når CSS fra siden det ikke. Sjekk det først om
+stilen ikke slår inn.
 - Legg skjemaet inn i påmeldingsseksjonen via HubSpots skjema-modul.
 - Style skjemaet så det matcher prototypen: lys krem bakgrunn (`#FBF5EA`), avrundede felt,
   teglrød send-knapp (`#7C3226`). Bruk HubSpots skjema-CSS eller egen CSS på siden.

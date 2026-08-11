@@ -1,0 +1,280 @@
+/* ===========================================================================
+   Hammersborgkvartalet — styling av HubSpot-skjemaet
+   ===========================================================================
+
+   Får HubSpot-skjemaet til å se ut som skjemaet i prototypen. Alle verdier er
+   hentet direkte fra src/Hammersborgkvartalet.dc.html — endres prototypen, må
+   de oppdateres her også.
+
+   SLIK BRUKER DU DEN
+   1. Legg skjemaet inn med HubSpots vanlige embed-kode, slik at det rendres
+      i sidens DOM.
+   2. Lim denne fila inn i sidens CSS (Design Manager → stylesheet, eller
+      «Additional CSS» / en <style>-blokk i modulen).
+   3. Pass på at Newsreader og Hanken Grotesk er lastet på siden. Uten dem
+      faller skjemaet tilbake på systemfonter og ser feil ut.
+
+   VIKTIG FORBEHOLD
+   Rendres skjemaet inne i en <iframe>, når CSS herfra det ikke — da må stilen
+   settes i HubSpots egne skjemainnstillinger i stedet. Sjekk med utviklerverktøy
+   om skjemaet ligger i sidens DOM eller i en iframe før du feilsøker videre.
+
+   Klassenavnene under er HubSpots standardklasser. HubSpot endrer markup
+   mellom versjoner — stemmer ikke en selektor, inspiser det faktiske skjemaet
+   og juster. Alt er ren CSS, ingen JS.
+   =========================================================================== */
+
+/* --- Designtokens fra prototypen ---------------------------------------- */
+:root {
+  --hk-krem-kort:     #FBF5EA;  /* skjemaets bakgrunn */
+  --hk-krem-felt:     #FFFDF8;  /* inputfelt */
+  --hk-teglrod:       #7C3226;  /* primær: knapp, valgt pille, seksjonsbakgrunn */
+  --hk-lys-tekst:     #FBF4E7;  /* tekst på teglrød */
+  --hk-tekst:         #2A211B;
+  --hk-tekst-merke:   #4A3C31;  /* labels */
+  --hk-kant-felt:     #DFD0B9;
+  --hk-kant-ramme:    #E4D6C0;  /* fieldset */
+  --hk-feil:          #B3261E;
+}
+
+/* --- Seksjonen rundt skjemaet ------------------------------------------- */
+/* Sett denne på modulen/raden som omgir skjemaet, ikke på skjemaet selv. */
+.hk-paamelding {
+  background: var(--hk-teglrod);
+  color: #F6EBDA;
+  padding: clamp(44px, 6vw, 72px) clamp(20px, 5vw, 48px);
+}
+.hk-paamelding > * { max-width: 900px; margin-inline: auto; }
+
+.hk-paamelding h2 {
+  font-family: 'Newsreader', serif;
+  font-weight: 400;
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  line-height: 1.06;
+  margin: 0;
+}
+
+/* --- Skjemaet: samme grid som prototypen ------------------------------- */
+/* Navn, E-post og Antall personer havner på én linje når det er plass;
+   under ~700px stables de av seg selv. */
+.hs-form {
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  background: var(--hk-krem-kort);
+  color: var(--hk-tekst);
+  border-radius: 20px;
+  padding: clamp(20px, 3vw, 30px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px 20px;
+  align-items: start;
+}
+
+.hs-form-field { margin: 0; min-width: 0; }
+
+/* Avkrysningsgrupper, samtykke og send-knapp går over hele bredden. */
+.hs-form .hs-fieldtype-checkbox,
+.hs-form .hs-fieldtype-booleancheckbox,
+.hs-form .legal-consent-container,
+.hs-form .hs_submit,
+.hs-form fieldset.form-columns-0 { grid-column: 1 / -1; }
+
+/* HubSpot grupperer feltene rad for rad i <fieldset class="form-columns-1|2|3">
+   med egne prosentbredder og floats. Nøytraliser det og gjør hver fieldset til
+   sin egen rad-grid — ellers stabler feltene seg vertikalt. */
+.hs-form fieldset {
+  grid-column: 1 / -1;
+  max-width: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px 20px;
+  align-items: start;
+}
+.hs-form fieldset .hs-form-field {
+  width: 100% !important;
+  float: none !important;
+  min-width: 0;
+}
+.hs-form .input { margin: 0 !important; }
+
+/* --- Labels ------------------------------------------------------------- */
+.hs-form-field > label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--hk-tekst-merke);
+  margin-bottom: 8px;
+}
+.hs-form-field > label .hs-form-required { color: var(--hk-teglrod); }
+
+/* Hjelpetekst under label */
+.hs-form .hs-field-desc {
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: #6B5D50;
+  margin: 0 0 8px;
+}
+
+/* --- Inputfelt ---------------------------------------------------------- */
+.hs-input:not([type="checkbox"]):not([type="radio"]) {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--hk-kant-felt);
+  background: var(--hk-krem-felt);
+  border-radius: 12px;
+  padding: 13px 15px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--hk-tekst);
+}
+.hs-input::placeholder { color: #9A8C7C; }
+.hs-input:focus-visible {
+  outline: 2px solid var(--hk-teglrod);
+  outline-offset: 1px;
+  border-color: var(--hk-teglrod);
+}
+.hs-input[type="checkbox"] { accent-color: var(--hk-teglrod); }
+
+/* --- «Jeg ønsker å delta på»: pillene ---------------------------------- */
+/* HubSpot rendrer avkrysningsvalg som <ul class="inputs-list"> med
+   <li class="hs-form-checkbox">. Vi gjør hver <li> til en pille. */
+.hs-fieldtype-checkbox > label {
+  /* Ser ut som prototypens <legend> */
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--hk-tekst-merke);
+  margin-bottom: 10px;
+}
+
+.hs-fieldtype-checkbox .inputs-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hs-form-checkbox { margin: 0; }
+
+.hs-form-checkbox > label,
+.hs-form-checkbox-display {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  background: var(--hk-krem-kort);
+  border: 1px solid var(--hk-kant-felt);
+  border-radius: 999px;
+  padding: 11px 18px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--hk-tekst-merke);
+  transition: background 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+.hs-form-checkbox > label input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  margin: 0;
+  accent-color: var(--hk-teglrod);
+}
+
+/* Valgt pille fylles teglrød — samme som mk(true) i prototypen.
+   :has() gjør dette uten JS. */
+.hs-form-checkbox > label:has(input:checked) {
+  background: var(--hk-teglrod);
+  border-color: var(--hk-teglrod);
+  color: var(--hk-lys-tekst);
+}
+.hs-form-checkbox > label:has(input:checked) input[type="checkbox"] {
+  accent-color: var(--hk-lys-tekst);
+}
+
+/* Rammen rundt gruppa, som prototypens fieldset */
+.hs-form .hs-fieldtype-checkbox {
+  border: 1px solid var(--hk-kant-ramme);
+  border-radius: 14px;
+  padding: 14px 16px;
+}
+
+/* --- Samtykke ----------------------------------------------------------- */
+.legal-consent-container { font-size: 0.9rem; color: var(--hk-tekst-merke); line-height: 1.45; }
+/* Flex må ligge på <label>, som er elementet som faktisk inneholder
+   avkrysningen og teksten. */
+.legal-consent-container .hs-form-booleancheckbox-display,
+.legal-consent-container .hs-form-booleancheckbox-display > label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  /* Ikke pille — samtykke er vanlig avkrysning */
+  background: none;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+.legal-consent-container input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  flex: 0 0 auto;
+  accent-color: var(--hk-teglrod);
+}
+.legal-consent-container p { margin: 0; }
+
+/* --- Send-knapp --------------------------------------------------------- */
+.hs-form .hs-button,
+.hs-form input[type="submit"].hs-button {
+  justify-self: start;
+  cursor: pointer;
+  border: none;
+  background: var(--hk-teglrod);
+  color: var(--hk-lys-tekst);
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1.02rem;
+  line-height: 1;
+  transition: background 120ms ease;
+}
+.hs-form .hs-button:hover { background: #933C2D; }
+.hs-form .hs-button:focus-visible { outline: 2px solid var(--hk-lys-tekst); outline-offset: 2px; }
+.hs-form .hs_submit .actions { margin: 0; padding: 0; }
+
+/* --- Valideringsfeil ---------------------------------------------------- */
+/* Prototypen validerer ikke i det hele tatt — se HUBSPOT.md. Disse reglene
+   gjelder HubSpots egne feilmeldinger. */
+.hs-form .hs-error-msgs {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+}
+.hs-form .hs-error-msg,
+.hs-form .hs-error-msgs label {
+  color: var(--hk-feil);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.hs-form .hs-input.error,
+.hs-form .hs-input.invalid { border-color: var(--hk-feil); }
+
+/* --- Takkemelding etter innsending -------------------------------------- */
+.submitted-message {
+  font-family: 'Hanken Grotesk', system-ui, sans-serif;
+  background: var(--hk-krem-kort);
+  color: var(--hk-tekst);
+  border-radius: 20px;
+  padding: clamp(28px, 4vw, 44px);
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
