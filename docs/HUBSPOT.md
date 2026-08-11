@@ -2,8 +2,17 @@
 
 ## Formål
 Én landingsside som får naboer og lokale brukere til å melde seg på Hammersborgkvartalets
-to arrangementer under Oslo Urban Week (22. september, Storsalen på Tempelet). Siden skal
-bygges opp som en **HubSpot landingsside**.
+to arrangementer under Oslo Urban Week (22. september, Storsalen på Tempelet).
+
+## Omfang — les dette først
+**Besluttet: siden bygges ikke opp på nytt i HubSpot.** Prototypen i dette repoet
+er selve leveransen, og `index.html` er den publiserbare fila.
+
+Det eneste som skal inn i HubSpot er **påmeldingsskjemaet**, slik at påmeldingene
+havner i CRM-et. Se «Påmeldingsskjema» under.
+
+Avsnittene om moduloppbygging, kart og designtokens lenger ned er beholdt som
+referanse om siden senere likevel skal porteres til HubSpot. De er ikke oppgaven nå.
 
 ## Om filene i denne pakken
 Filene her er en **designreferanse laget i HTML** – en prototype som viser ønsket utseende og
@@ -73,6 +82,10 @@ det faktiske skjemaet og juster.
 Rendres skjemaet i en `<iframe>`, når CSS fra siden det ikke. Sjekk det først om
 stilen ikke slår inn.
 
+`docs/hubspot-form-api.md` er et alternativ til begge: ferdige API-kall som
+oppretter de to kontaktegenskapene og skjemaet direkte. Krever et private app
+token med scopene `forms` og `crm.schemas.contacts.write`.
+
 ## Kart
 Google Maps-innbygging (iframe med `/maps/embed?pb=…`, adresse Akersgata 73, 0180 Oslo).
 Ligger i Nabolaget-seksjonen. Kopier iframe-src fra kildefilen. Merk: den enkle
@@ -103,7 +116,7 @@ Form:
 - Egen fast «Meld deg på»-linje nederst på mobil (sticky bar).
 
 ## Assets
-Alle bilder ligger i `source/assets/` (hentet fra `Hammersborgkvartalet_generell_v2.pdf`):
+Alle bilder ligger i `assets/` (hentet fra `Hammersborgkvartalet_generell_v2.pdf`):
 - `img00.jpg` hero · `img03.jpg` nabolag · `img04.jpg` prosjekt-aksonometri
 - `img06/07/09.jpg` gateplan/passasje/torg · `img13.jpg` Sirkelhagen · `img29.jpg` nabolagstreff
 - `he-logo-hvit.png` Höegh Eiendom-logo (hvit, én linje)
@@ -116,6 +129,3 @@ Bekreft med Höegh Eiendom at bildene kan brukes offentlig på publisert side.
 - Etterpå: små tekst-/bildeendringer gjøres i HubSpot. Større redesign prototypes her først,
   deretter porteres til HubSpot. Denne filen er ikke koblet til HubSpot – endringer her
   oppdaterer ikke den publiserte siden automatisk.
-
-`docs/hubspot-form-api.md` — alternativ: opprett egenskapene og skjemaet via
-HubSpots API i stedet for manuelt. Krever et private app token.
