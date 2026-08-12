@@ -101,7 +101,7 @@
             <div style="display:flex; align-items:center; gap:10px; color:#9A5A3E; font-weight:600; font-size:0.9rem; margin-bottom:12px;">
               <span>{{ ev.time }}</span><span style="opacity:0.4;">·</span><span>{{ ev.place }}</span>
             </div>
-            <h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:clamp(1.5rem,2.4vw,1.95rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:14px;">{{ ev.title }}</h3>
+            <h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:clamp(1.5rem,2.4vw,1.95rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:14px; text-wrap:balance;">{{ ev.title }}</h3>
             <p style="color:#5C4E43; font-size:1.02rem; line-height:1.6;">{{ ev.desc }}</p>
           </div>
         </article>
@@ -295,7 +295,7 @@ class Component extends DCLogic {
       {
         tag: 'Samtale & konsert', badgeBg: '#71806A', badgeInk: '#FBF4E7',
         time: 'Kl. 18:00–19:30', place: 'Kommandør T. I. Øgrims plass 4',
-        title: 'Ungdom først',
+        title: 'Ungdom først – hvorfor inkluderende byrom betyr noe',
         desc: 'Samtale og foredrag om ungdom, tilhørighet og inkluderende byrom, i samarbeid med Centrum Tigers og Høegh Eiendom. Kvelden avsluttes med en intimkonsert med en hemmelig artist.',
         img: 'assets/img07.jpg',
       },
