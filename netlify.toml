@@ -1,0 +1,44 @@
+# Netlify publiserer repo-rota, så alt som ligger her blir offentlig lesbart.
+# Det gjelder også interne notater og kildefiler. Reglene under skjermer dem.
+#
+# Ingen [build]-seksjon med vilje: publiseringsmappa settes i Netlify-panelet,
+# og å overstyre den herfra ville vært en unødig risiko.
+
+[[redirects]]
+  from = "/docs/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/src/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/build.py"
+  to = "/404.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Originalbildene i full oppløsning trengs ikke på web — assets-web/ serverer
+# de skalerte. De ligger i repoet for at bygget skal kunne kjøres på nytt.
+[[redirects]]
+  from = "/assets/*"
+  to = "/404.html"
+  status = 404
+  force = true
+
+# Bildene og fontene endrer seg sjelden, og filnavnene er stabile.
+# Én uke er en trygg mellomlagring uten å låse oss fast.
+[[headers]]
+  for = "/assets-web/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"

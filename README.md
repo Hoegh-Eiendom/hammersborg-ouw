@@ -3,7 +3,9 @@
 Nabolags-onepager for **Hammersborgkvartalet** under Oslo Urban Week
 (22. september, Storsalen på Tempelet). Målet er påmelding til de to arrangementene.
 
-Eier: Höegh Eiendom · Status: designprototype, klar for HubSpot-oppbygging
+Eier: Höegh Eiendom · Publisert: https://hammersborg.netlify.app/
+
+Netlify deployer automatisk fra `main`. Pusher du, går det rett ut.
 
 ## Innhold
 
@@ -11,11 +13,13 @@ Eier: Höegh Eiendom · Status: designprototype, klar for HubSpot-oppbygging
 |---|---|
 | `src/Hammersborgkvartalet.dc.html` | **Kildefil — rediger her.** All inline-CSS per seksjon. |
 | `src/support.js` | Runtime som kildefilen krever. Ikke rediger. |
-| `assets/` | Bilder (hentet fra prosjekt-PDF) og Höegh Eiendom-logo. |
-| `build.py` | Bygger `index.html` fra kilden. Kjøres etter hver endring. |
-| `index.html` | **Bygget fil — rediger aldri direkte.** Hele siden i én fil, virker uten nett. |
-| `docs/index.html` | Identisk kopi for GitHub Pages, skrives av samme bygg. |
-| `docs/HUBSPOT.md` | Implementeringsnotater for HubSpot: modul-kartlegging, skjema, designtokens. |
+| `assets/` | Originalbildene i full oppløsning. Kilde for bygget, serveres ikke. |
+| `assets-web/` | Skalerte bilder som faktisk serveres. Skrives for hånd, se under. |
+| `build.py` | Bygger begge utgavene. Kjøres etter hver endring. |
+| `index.html` | **Bygget — rediger aldri.** Web-utgaven Netlify publiserer. ~270 KB. |
+| `hammersborg-standalone.html` | **Bygget.** Alt i én fil, virker uten nett. Til deling som vedlegg. |
+| `netlify.toml` | Skjermer interne filer, og setter mellomlagring på bildene. |
+| `docs/HUBSPOT.md` | Implementeringsnotater for HubSpot: skjema, designtokens. |
 
 ## Gjøre endringer
 
@@ -26,10 +30,35 @@ Eier: Höegh Eiendom · Status: designprototype, klar for HubSpot-oppbygging
    python3 build.py
    ```
 
-   Skriver både `index.html` og `docs/index.html`. Bygget henter fonter og React
-   fra nett; `python3 build.py --no-fonts` hopper over det, men da krever den
-   ferdige fila nettilgang for typografi.
+   Skriver `index.html` og `hammersborg-standalone.html`. Bygget henter React —
+   og fonter til den selvstendige utgaven — fra nett. `--web` bygger bare
+   web-utgaven og går raskere.
 3. Se resultatet: åpne `index.html` i nettleser.
+
+## To utgaver, og hvorfor
+
+`index.html` er **271 KB** og henter bildene som egne filer fra `assets-web/`.
+Nettleseren kan da vise teksten før bildene er nede, laste dem etter hvert som
+man scroller, og mellomlagre dem til neste besøk.
+
+`hammersborg-standalone.html` er **5,9 MB** med alt inlinet. Den virker uten nett
+og uten filer ved siden av, og er den du sender som vedlegg.
+
+Tidligere var `index.html` selv 11,1 MB, fordi alle bildene lå base64-kodet i
+HTML-en. Ingenting vistes før hele fila var lastet ned — på mobilnett 15–20
+sekunder blank skjerm.
+
+### Når bildene endres
+
+`assets-web/` genereres ikke av `build.py`. Legger du til eller bytter et bilde,
+må du skalere det manuelt:
+
+```bash
+cp assets/nytt.jpg assets-web/ && sips -Z 1400 -s formatOptions 60 assets-web/nytt.jpg
+```
+
+Hero-bildet tåler 2200 px; kortbilder klarer seg med 1400. Er originalen alt
+mindre enn målet, la den være — re-koding gjør små filer større.
 
 ### Live forhåndsvisning mens du jobber
 
@@ -49,7 +78,7 @@ prøver å laste dem før runtime-en rekker å fylle inn malen.
 Settings → Pages → Source: `main` / mappe `/docs`. Siden blir liggende på
 `https://hoegh-eiendom.github.io/hammersborg-ouw/`.
 
-Merk: på privat repo krever Pages betalt GitHub-plan. Er repoet privat og dere
+Merk: siden publiseres via Netlify fra `main`, ikke via GitHub Pages.
 ikke har det, del `index.html` som fil i stedet — den virker frittstående, uten
 nett og uten `assets/`-mappa ved siden av.
 
