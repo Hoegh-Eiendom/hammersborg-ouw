@@ -1804,9 +1804,9 @@
       <h2 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(2rem,3.8vw,3.1rem); line-height:1.06; letter-spacing:-0.01em; text-wrap:balance;">Kom innom under Oslo Urban Week</h2>
     </div>
 
-    <!-- align-items:start — kort 2 har medvirkende og program i tillegg, og uten
-         dette ville kort 1 strekkes til samme høyde med et stort tomrom. -->
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:var(--hk-kort-gap); align-items:start;">
+    <!-- Kortene strekkes til lik høyde. Nabolagstreffet har fått lengre tekst,
+         så innholdsmengden er nå jevn nok til at det ikke gir tomrom. -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:var(--hk-kort-gap);">
       <sc-for list="{{ events }}" as="ev" hint-placeholder-count="2">
         <article style="background:#FBF5EA; border:1px solid #E4D6C0; border-radius:22px; overflow:hidden; display:flex; flex-direction:column;">
           <div style="position:relative; aspect-ratio:16/10; overflow:hidden;">
@@ -1831,12 +1831,6 @@
               </div>
             </sc-if>
 
-            <sc-if value="{{ ev.program }}" hint-placeholder-val="{{ true }}">
-              <div style="margin-top:16px;">
-                <p style="color:#9A5A3E; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; font-size:0.72rem; margin-bottom:8px;">Programmet</p>
-                <p style="color:#5C4E43; font-size:0.98rem; line-height:1.6;">{{ ev.program }}</p>
-              </div>
-            </sc-if>
           </div>
         </article>
       </sc-for>
@@ -2037,7 +2031,9 @@ class Component extends DCLogic {
         date: 'Tirsdag 22. september',
         time: 'Kl. 16:00–18:00', place: 'Kommandør T. I. Øgrims plass 4',
         title: 'Bli kjent med planene',
-        desc: 'Uformelt nabolagstreff der naboer og lokale aktører kan se illustrasjoner, møte prosjektteamet, stille spørsmål og bli bedre kjent med planene.',
+        desc: 'Hvordan skal Akersgata 73, Keysersgate 1 og Kommandør T. I. Øgrims plass 4 utvikles videre – og hvordan kan nabolaget bli med på reisen? Et uformelt treff der naboer, lokale aktører og andre interesserte kan se illustrasjoner, stille spørsmål og bli bedre kjent med planene for Hammersborgkvartalet.',
+        medvirkendeTittel: 'Du møter',
+        medvirkende: 'Menneskene som jobber med prosjektet til daglig. Ingen presentasjon fra scenen — kom innom når det passer, se illustrasjonene og ta med spørsmålene dine.',
         img: 'assets-web/img29.jpg',
       },
       {
@@ -2048,7 +2044,6 @@ class Component extends DCLogic {
         desc: 'Hvordan kan inkluderende møteplasser skape trygghet, fellesskap og bedre byliv? Ungdom blir ofte glemt i byutvikling, selv om de trenger trygge steder å være. Samtale og foredrag i samarbeid med Centrum Tigers og Höegh Eiendom.',
         medvirkendeTittel: 'Du møter',
         medvirkende: 'Marco Elsafadi — foredragsholder, tidligere toppidrettsutøver og ungdomsarbeider, og vinner av Mesternes Mester i 2014 — deler innsikt om fellesskap og inkludering. Basketballspillerne Julie McCarthy og Shiba Ahmadi forteller om tilhørighet gjennom idrett. Alle tre fra Centrum Tigers.',
-        program: 'Innlegg fra Centrum Tigers og ungdomsrepresentanter, samtale om inkludering og møteplasser, refleksjoner fra byutviklere og fagmiljø, og dialog med publikum.',
         img: 'assets-web/img07.jpg',
       },
     ];
