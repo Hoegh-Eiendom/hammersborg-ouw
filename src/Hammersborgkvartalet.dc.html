@@ -98,8 +98,10 @@
             <span style="position:absolute; top:16px; left:16px; background:{{ ev.badgeBg }}; color:{{ ev.badgeInk }}; padding:11px 20px; border-radius:999px; font-weight:600; font-size:0.95rem; letter-spacing:0.04em;">{{ ev.tag }}</span>
           </div>
           <div style="padding:28px clamp(22px,3vw,32px) 30px; display:flex; flex-direction:column; flex:1;">
-            <div style="display:flex; align-items:center; gap:10px; color:#9A5A3E; font-weight:600; font-size:0.9rem; margin-bottom:12px;">
-              <span>{{ ev.time }}</span><span style="opacity:0.4;">·</span><span>{{ ev.place }}</span>
+            <!-- flex-wrap fordi linja nå har tre ledd: dato, tid og adresse.
+                 Uten den ville leddene klemmes sammen på smale kort. -->
+            <div style="display:flex; align-items:center; flex-wrap:wrap; gap:4px 10px; color:#9A5A3E; font-weight:600; font-size:0.9rem; margin-bottom:12px;">
+              <span>{{ ev.date }}</span><span style="opacity:0.4;">·</span><span>{{ ev.time }}</span><span style="opacity:0.4;">·</span><span>{{ ev.place }}</span>
             </div>
             <h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:clamp(1.5rem,2.4vw,1.95rem); line-height:1.12; letter-spacing:-0.01em; margin-bottom:14px; text-wrap:balance;">{{ ev.title }}</h3>
             <p style="color:#5C4E43; font-size:1.02rem; line-height:1.6;">{{ ev.desc }}</p>
@@ -287,16 +289,18 @@ class Component extends DCLogic {
     const events = [
       {
         tag: 'Nabolagstreff', badgeBg: '#7C3226', badgeInk: '#FBF4E7',
+        date: 'Tirsdag 22. september',
         time: 'Kl. 16:00–18:00', place: 'Kommandør T. I. Øgrims plass 4',
         title: 'Bli kjent med planene',
         desc: 'Uformelt nabolagstreff der naboer og lokale aktører kan se illustrasjoner, møte prosjektteamet, stille spørsmål og bli bedre kjent med planene.',
         img: 'assets/img29.jpg',
       },
       {
-        tag: 'Samtale & konsert', badgeBg: '#71806A', badgeInk: '#FBF4E7',
+        tag: 'Foredrag', badgeBg: '#71806A', badgeInk: '#FBF4E7',
+        date: 'Tirsdag 22. september',
         time: 'Kl. 18:00–19:30', place: 'Kommandør T. I. Øgrims plass 4',
         title: 'Ungdom først – hvorfor inkluderende byrom betyr noe',
-        desc: 'Samtale og foredrag om ungdom, tilhørighet og inkluderende byrom, i samarbeid med Centrum Tigers og Høegh Eiendom. Kvelden avsluttes med en intimkonsert med en hemmelig artist.',
+        desc: 'Samtale og foredrag om ungdom, tilhørighet og inkluderende byrom, i samarbeid med Centrum Tigers og Höegh Eiendom. Kvelden avsluttes med en intimkonsert med en hemmelig artist.',
         img: 'assets/img07.jpg',
       },
     ];
