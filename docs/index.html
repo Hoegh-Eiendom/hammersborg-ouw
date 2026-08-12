@@ -2129,11 +2129,26 @@
         <p style="font-size:1rem; line-height:1.5; opacity:0.85;">Tar under ett minutt — helt uforpliktende.</p>
       </div>
 
-      <!-- Ekte HubSpot-skjema (portal 25006101). Rendres i en kryssdomene-iframe,
-           så CSS herfra når ikke inn i skjemaet — utformingen settes i HubSpot.
-           Krever nett: uten tilkobling vises ingenting her. -->
-      <script src="https://js-eu1.hsforms.net/forms/embed/25006101.js" defer></script>
-      <div class="hs-form-frame" data-region="eu1" data-form-id="6b0bdd6e-28e1-4ea9-b6cf-c3553dcf5fdc" data-portal-id="25006101"></div>
+      <!-- Påmeldingen ligger på en ekstern HubSpot-side. Kortet er derfor ren
+           CTA: kort forklaring og én tydelig utgående lenke. Ingen innbygd
+           iframe, som betyr at siden ikke lenger avhenger av at HubSpots
+           skript laster. -->
+      <div style="background:#FBF5EA; color:#2A211B; border-radius:20px; padding:clamp(26px,3.5vw,44px); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:28px 40px;">
+        <div style="flex:1 1 320px; min-width:0;">
+          <p style="font-size:clamp(1.1rem,1.5vw,1.3rem); line-height:1.5; font-weight:600; margin-bottom:10px;">Påmeldingen gjøres på en egen side.</p>
+          <p style="color:#5C4E43; font-size:1.02rem; line-height:1.6;">Der velger du om du vil komme på nabolagstreffet, foredraget — eller begge. Du trenger bare navn og e-postadresse.</p>
+        </div>
+        <div style="flex:0 0 auto;">
+          <a href="https://evytx.share-eu1.hsforms.com/2R1_yVGzPRrqXtx6ZozXnMg" target="_blank" rel="noopener noreferrer"
+             style="display:inline-flex; align-items:center; gap:12px; background:#7C3226; color:#FBF4E7; padding:19px 40px; border-radius:999px; font-weight:700; font-size:1.12rem; line-height:1; box-shadow:0 12px 30px rgba(30,10,6,0.28); white-space:nowrap;">
+            Meld deg på
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex:0 0 auto;">
+              <path d="M7 17 17 7M9 7h8v8"/>
+            </svg>
+          </a>
+          <p style="color:#6B5D50; font-size:0.85rem; line-height:1.4; margin-top:12px; text-align:center;">Åpnes i ny fane</p>
+        </div>
+      </div>
     </div>
   </section>
 

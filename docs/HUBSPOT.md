@@ -4,6 +4,19 @@
 Én landingsside som får naboer og lokale brukere til å melde seg på Hammersborgkvartalets
 to arrangementer under Oslo Urban Week (22. september, Storsalen på Tempelet).
 
+## Status: skjemaet er ikke lenger innbygd
+Påmeldingsseksjonen inneholder nå **en utgående lenke**, ikke et innbygd skjema.
+Påmeldingen skjer på en ekstern HubSpot-side:
+
+```
+https://evytx.share-eu1.hsforms.com/2R1_yVGzPRrqXtx6ZozXnMg
+```
+
+Det betyr at `hubspot-form.css` **ikke er i bruk på siden**. Den er beholdt for
+det tilfellet at skjemaet senere skal bygges inn igjen — se «Ferdig brief og
+styling». Det samme gjelder feltspesifikasjonen under: den beskriver skjemaet
+slik det skal se ut i HubSpot, uansett om det bygges inn på siden eller ikke.
+
 ## Omfang — les dette først
 **Besluttet: siden bygges ikke opp på nytt i HubSpot.** Prototypen i dette repoet
 er selve leveransen, og `index.html` er den publiserbare fila.
