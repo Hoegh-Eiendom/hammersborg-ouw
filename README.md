@@ -73,34 +73,39 @@ finnes bare for at bildene skal løses riktig i denne visningen.
 To 404-er på `{{ ev.img }}` og `{{ ft.img }}` i konsollen er ufarlige: nettleseren
 prøver å laste dem før runtime-en rekker å fylle inn malen.
 
-## GitHub Pages
+## Publisering
 
-Settings → Pages → Source: `main` / mappe `/docs`. Siden blir liggende på
-`https://hoegh-eiendom.github.io/hammersborg-ouw/`.
+Netlify bygger fra `main` og serverer repo-rota. Push til `main` går rett ut på
+https://hammersborg.netlify.app/ — ingen manuell publisering.
 
-Merk: siden publiseres via Netlify fra `main`, ikke via GitHub Pages.
-ikke har det, del `index.html` som fil i stedet — den virker frittstående, uten
-nett og uten `assets/`-mappa ved siden av.
+Fordi rota serveres, ville alt i repoet vært offentlig lesbart. `netlify.toml`
+skjermer `docs/`, `src/`, `build.py`, `README.md` og `assets/`.
+
+GitHub Pages er ikke i bruk.
 
 ## Viktig om skjemaet
 
-Påmeldingsskjemaet er et **ekte HubSpot-skjema** (portal 25006101, form-id
-`6b0bdd6e-…`). Innsendinger havner i Höegh Eiendoms CRM. Åpner du siden og sender
-inn, opprettes en reell kontakt.
+Påmeldingen skjer på en **ekstern HubSpot-side**, ikke på denne siden.
+Påmeldingsseksjonen inneholder en utgående lenke:
 
-To konsekvenser:
+```
+https://evytx.share-eu1.hsforms.com/2_PDcehZhRH6M8jWpA1CGFw
+```
 
-- **Skjemaet krever nettilgang.** Resten av siden virker uten nett, men
-  skjemaseksjonen står tom uten tilkobling.
-- **Utformingen av skjemaet settes i HubSpot,** ikke her. Det rendres i en
-  kryssdomene-iframe, så CSS fra siden når ikke inn. Se `docs/hubspot-form.css`.
+Skjemaet var tidligere bygget inn med HubSpots embed-skript. Det er tatt ut, så
+siden avhenger ikke lenger av at et tredjepartsskript laster.
+
+`docs/hubspot-form.css` er derfor **ikke i bruk**. Den er beholdt i tilfelle
+skjemaet skal bygges inn igjen.
 
 ## Arbeidsflyt
 
-Design itereres i prototypen. Utvikler gjør en engangs-oppbygging i HubSpot ut fra
-`docs/HUBSPOT.md`. Etterpå gjøres små tekst-/bildeendringer i HubSpot; større
-redesign prototypes her først. Dette repoet er ikke koblet til HubSpot — endringer
-her oppdaterer ikke den publiserte siden automatisk.
+Design itereres i kildefila her, bygges med `build.py`, og pushes. Netlify
+deployer automatisk.
+
+Skjemaet lever i HubSpot og redigeres der — se `docs/HUBSPOT.md` for
+feltspesifikasjonen. Endringer i skjemaet påvirker ikke denne siden, og omvendt;
+det eneste bindeleddet er lenka over.
 
 ## Bilderettigheter
 
