@@ -9,7 +9,7 @@ Påmeldingsseksjonen inneholder nå **en utgående lenke**, ikke et innbygd skje
 Påmeldingen skjer på en ekstern HubSpot-side:
 
 ```
-https://evytx.share-eu1.hsforms.com/2R1_yVGzPRrqXtx6ZozXnMg
+https://evytx.share-eu1.hsforms.com/2_PDcehZhRH6M8jWpA1CGFw
 ```
 
 Det betyr at `hubspot-form.css` **ikke er i bruk på siden**. Den er beholdt for
@@ -61,10 +61,12 @@ modul bør ha redigerbare felt (tekst/bilde/lenke) så teamet kan oppdatere uten
 
 ## Påmeldingsskjema (VIKTIG)
 
-**Status: opprettet og bygget inn.** Form-id `6b0bdd6e-28e1-4ea9-b6cf-c3553dcf5fdc`,
-portal 25006101, region eu1. Embed-en ligger i påmeldingsseksjonen i kildefila, og
-skjemaet rendres i en kryssdomene-iframe — utformingen settes derfor i HubSpots
-skjema-editor, ikke i CSS på siden.
+**Status: opprettet i HubSpot, men ikke bygget inn.** Siden lenker ut til den
+delte skjemasiden (se øverst). Embed-en som lå i påmeldingsseksjonen er fjernet.
+
+Form-id `6b0bdd6e-28e1-4ea9-b6cf-c3553dcf5fdc`, portal 25006101, region eu1.
+Utformingen settes i HubSpots skjema-editor — siden har ingen kontroll over den
+når skjemaet ligger på egen adresse.
 
 ### Avvik som gjenstår å rette i HubSpot
 Verifisert i nettleser 11. august 2026:
