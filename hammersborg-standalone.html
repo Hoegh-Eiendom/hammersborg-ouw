@@ -2106,7 +2106,6 @@
            over ~440px binder ikke leddet, så desktop-størrelsen er uendret. -->
       <h1 style="font-family:'Newsreader',serif; font-weight:400; color:#FBF4E7; font-size:min(8.6vw,clamp(2.35rem,6.4vw,5.4rem)); line-height:1.03; letter-spacing:-0.015em; max-width:24ch; overflow-wrap:break-word; text-shadow:0 2px 22px rgba(20,12,8,0.4);">Hammersborgkvartalet</h1>
       <p style="color:#F6EEE0; font-size:clamp(1.05rem,1.6vw,1.4rem); line-height:1.55; max-width:56ch; margin-top:26px; text-shadow:0 1px 12px rgba(20,12,8,0.5);">Et nytt kapittel for Hammersborg er på vei. Vi inviterer naboer, lokale aktører og nysgjerrige inn til å se planene, møte folkene bak prosjektet og snakke om hvordan kvartalet kan bli en god del av nabolaget.</p>
-      <p style="color:#F6EEE0; font-size:clamp(1rem,1.4vw,1.2rem); line-height:1.55; max-width:56ch; margin-top:18px; opacity:0.92; text-shadow:0 1px 12px rgba(20,12,8,0.5);">Höegh Eiendom er partner og medarrangør av årets Oslo Urban Week, og flere av arrangementene holdes i Hammersborgkvartalet og på Hammersborg. Vi har satt sammen et foredrag der blant andre Marco Elsafadi snakker om hvorfor ungdom må regnes med når byen utvikles.</p>
       <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:34px;">
         <button onClick="{{ goToForm }}" style="border:none; cursor:pointer; background:#7C3226; color:#FBF4E7; padding:16px 30px; border-radius:999px; font-weight:600; font-size:1.02rem; box-shadow:0 12px 30px rgba(58,20,12,0.35);">Meld deg på</button>
         <button onClick="{{ goToEvents }}" style="cursor:pointer; background:rgba(247,239,225,0.12); color:#FBF4E7; padding:16px 28px; border-radius:999px; font-weight:600; font-size:1.02rem; border:1px solid rgba(247,239,225,0.5); backdrop-filter:blur(4px);">Se arrangementene</button>
@@ -2116,10 +2115,13 @@
 
   <!-- ===== ARRANGEMENTER ===== -->
   <section id="arrangementer" style="max-width:var(--hk-bredde); margin:0 auto; padding:var(--hk-seksjon-y) var(--hk-seksjon-x) clamp(48px,6vw,72px);">
-    <div style="max-width:48ch; margin-bottom:40px;">
+    <div style="max-width:48ch; margin-bottom:22px;">
       <p style="color:#9A5A3E; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; font-size:0.8rem; margin-bottom:14px;">To arrangementer</p>
       <h2 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(2rem,3.8vw,3.1rem); line-height:1.06; letter-spacing:-0.01em; text-wrap:balance;">Velkommen innom</h2>
     </div>
+    <!-- Egen max-width: 48ch er satt for overskriften, men brødtekst leses
+         bedre på litt lengre linjer. -->
+    <p style="color:#5C4E43; font-size:clamp(1.05rem,1.5vw,1.25rem); line-height:1.6; max-width:64ch; margin-bottom:40px;">Höegh Eiendom er partner og medarrangør av årets Oslo Urban Week, og flere av arrangementene holdes i Hammersborgkvartalet og på Hammersborg. I tillegg til å vise frem prosjektet vårt har vi satt sammen et foredrag der blant andre Marco Elsafadi skal snakke om inkludering i byrommet — og særlig om ungdom, som ofte blir glemt når byen utvikles.</p>
 
     <!-- Kortene strekkes til lik høyde. Nabolagstreffet har fått lengre tekst,
          så innholdsmengden er nå jevn nok til at det ikke gir tomrom. -->
@@ -2378,4 +2380,4 @@ class Component extends DCLogic {
 </body>
 </html>
 
-<!-- kildesignatur: ba3020038e034048 -->
+<!-- kildesignatur: 1084cc642b4f2ce8 -->
