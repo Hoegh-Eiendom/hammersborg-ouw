@@ -30,10 +30,36 @@ Netlify deployer automatisk fra `main`. Pusher du, går det rett ut.
    python3 build.py
    ```
 
-   Skriver `index.html` og `hammersborg-standalone.html`. Bygget henter React —
-   og fonter til den selvstendige utgaven — fra nett. `--web` bygger bare
-   web-utgaven og går raskere.
+   Skriver `index.html` og `hammersborg-standalone.html`. Tar under ett sekund
+   og **krever ikke nett** — React og fontene ligger i `vendor/`.
 3. Se resultatet: åpne `index.html` i nettleser.
+
+### Kontroller før deploy
+
+```bash
+python3 build.py --check
+```
+
+Sier fra om filene på disk er bygget fra gjeldende kilde. Gir exitkode 1 hvis
+noe er utdatert, så den kan brukes i et skript.
+
+Bygget skriver en kildesignatur nederst i begge filene. `--check` sammenligner
+den med en hash av kilden, support.js og innholdet i `assets-web/`.
+
+### To ting som gjør bygget forutsigbart
+
+**Begge utgavene bygges ferdig i minnet før noen skrives.** Feiler den ene,
+skrives ingen. Tidligere kunne `index.html` bli oppdatert mens den selvstendige
+utgaven ble liggende igjen på forrige versjon — det skjedde, uten at noe sa fra.
+
+**Ingen nettverksavhengighet.** React og fontene lå tidligere bak 13
+nedlastinger per bygg, og en enkelt 404 fra Google Fonts veltet hele
+byggingen. Nå leses de fra `vendor/`, som er sjekket inn. Mangler en fil,
+lastes den ned én gang og lagres — med fire forsøk. Slett `vendor/` for å
+tvinge ny nedlasting.
+
+`--web` bygger bare web-utgaven. Da blir den selvstendige utdatert, og både
+byggingen og `--check` sier fra.
 
 ## To utgaver, og hvorfor
 
