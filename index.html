@@ -1822,7 +1822,13 @@
         <article style="background:#FBF5EA; border:1px solid #E4D6C0; border-radius:22px; overflow:hidden; display:flex; flex-direction:column;">
           <div style="position:relative; aspect-ratio:16/10; overflow:hidden;">
             <img loading="lazy" decoding="async" src="{{ ev.img }}" alt="{{ ev.title }}" style="width:100%; height:100%; object-fit:cover; object-position:{{ ev.imgPos }};">
-            <span style="position:absolute; top:16px; left:16px; background:{{ ev.badgeBg }}; color:{{ ev.badgeInk }}; padding:11px 20px; border-radius:999px; font-weight:600; font-size:0.95rem; letter-spacing:0.04em;">{{ ev.tag }}</span>
+            <div style="position:absolute; top:16px; left:16px; display:flex; flex-wrap:wrap; gap:8px;">
+              <span style="background:{{ ev.badgeBg }}; color:{{ ev.badgeInk }}; padding:11px 20px; border-radius:999px; font-weight:600; font-size:0.95rem; letter-spacing:0.04em;">{{ ev.tag }}</span>
+              <!-- Bare nabolagstreffet har servering. -->
+              <sc-if value="{{ ev.tag2 }}" hint-placeholder-val="{{ true }}">
+                <span style="background:#C97A4A; color:#2A211B; padding:11px 20px; border-radius:999px; font-weight:700; font-size:0.95rem; letter-spacing:0.04em;">{{ ev.tag2 }}</span>
+              </sc-if>
+            </div>
           </div>
           <div style="padding:28px clamp(22px,3vw,32px) 30px; display:flex; flex-direction:column; flex:1;">
             <!-- flex-wrap fordi linja nå har tre ledd: dato, tid og adresse.
@@ -1835,6 +1841,13 @@
 
             <!-- Bare arrangement 2 har disse feltene. sc-if gjør at kort uten
                  dem ikke får en tom ramme. -->
+            <sc-if value="{{ ev.servering }}" hint-placeholder-val="{{ true }}">
+              <div style="margin-top:20px; padding:14px 16px; background:#F6E8D8; border:1px solid #E4D6C0; border-radius:14px;">
+                <p style="color:#9A5A3E; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; font-size:0.72rem; margin-bottom:8px;">Servering</p>
+                <p style="color:#5C4E43; font-size:0.98rem; line-height:1.6;">{{ ev.servering }}</p>
+              </div>
+            </sc-if>
+
             <sc-if value="{{ ev.medvirkende }}" hint-placeholder-val="{{ true }}">
               <div style="margin-top:20px; padding-top:18px; border-top:1px solid #E4D6C0;">
                 <p style="color:#9A5A3E; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; font-size:0.72rem; margin-bottom:8px;">{{ ev.medvirkendeTittel }}</p>
@@ -1861,7 +1874,7 @@
         <div style="flex:1 1 320px; min-width:0;">
           <p style="font-size:clamp(1.1rem,1.5vw,1.3rem); line-height:1.5; font-weight:600; margin-bottom:10px;">Påmeldingen gjøres på en egen side.</p>
           <p style="color:#5C4E43; font-size:1.02rem; line-height:1.6;">Der velger du om du vil komme på nabolagstreffet, foredraget — eller begge. Du trenger bare navn og e-postadresse.</p>
-          <p style="color:#2A211B; font-size:1.02rem; line-height:1.6; font-weight:600; margin-top:12px;">Begge arrangementene er gratis, og det blir mulighet for mat og drikke.</p>
+          <p style="color:#2A211B; font-size:1.02rem; line-height:1.6; font-weight:600; margin-top:12px;">Begge arrangementene er gratis. På nabolagstreffet spanderer vi middag.</p>
         </div>
         <div style="flex:0 0 auto;">
           <a href="https://evytx.share-eu1.hsforms.com/2_PDcehZhRH6M8jWpA1CGFw" target="_blank" rel="noopener noreferrer"
@@ -2026,13 +2039,13 @@ class Component extends DCLogic {
     const events = [
       {
         tag: 'Nabolagstreff', badgeBg: '#7C3226', badgeInk: '#FBF4E7',
+        tag2: 'Gratis mat',
         date: 'Tirsdag 22. september',
         time: 'Kl. 16:00–18:00', place: 'Kommandør T. I. Øgrims plass 4',
         title: 'Bli kjent med planene',
-        desc: 'Hvordan skal Akersgata 73, Keysersgate 1 og Kommandør T. I. Øgrims plass 4 utvikles videre – og hvordan kan nabolaget bli med på reisen? Et uformelt treff der naboer, lokale aktører og andre interesserte kan se illustrasjoner, stille spørsmål og bli bedre kjent med planene for Hammersborgkvartalet.',
-        medvirkendeTittel: 'Du møter',
-        medvirkende: 'Menneskene som jobber med prosjektet til daglig. Ingen presentasjon fra scenen — kom innom når det passer, se illustrasjonene og ta med spørsmålene dine.',
+        desc: 'Hvordan skal Akersgata 73, Keysersgate 1 og Kommandør T. I. Øgrims plass 4 utvikles videre – og hvordan kan nabolaget bli med på reisen? Et uformelt treff der naboer, lokale aktører og andre interesserte kan se illustrasjoner, stille spørsmål og bli bedre kjent med planene for Hammersborgkvartalet. Du møter menneskene som jobber med prosjektet til daglig — ingen presentasjon fra scenen, bare stikk innom når det passer.',
         img: 'assets-web/ogrims-plass.jpg', imgPos: 'center',
+        servering: 'Vi spanderer middag laget av Mamas Mat — en sosial entreprenør som skaper arbeidsplasser for kvinner med innvandrerbakgrunn. Kom sulten.',
       },
       {
         tag: 'Foredrag', badgeBg: '#71806A', badgeInk: '#FBF4E7',
@@ -2071,4 +2084,4 @@ class Component extends DCLogic {
 </body>
 </html>
 
-<!-- kildesignatur: 37366858b7649627 -->
+<!-- kildesignatur: a77e176891125936 -->
