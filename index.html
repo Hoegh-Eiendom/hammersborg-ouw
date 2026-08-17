@@ -1859,6 +1859,28 @@
         </article>
       </sc-for>
     </div>
+
+    <!-- Avlang blokk under kortene. Samme flate, kant og radius som kortene,
+         men liggende: rundt bilde til venstre, tekst til høyre.
+         Bildet er en plassholder — bytt <svg> mot en <img loading="lazy" decoding="async"> når fotoet finnes.
+         Brødteksten mangler med vilje; feltet er klart. -->
+    <div style="margin-top:var(--hk-kort-gap); background:#FBF5EA; border:1px solid #E4D6C0; border-radius:22px; padding:clamp(24px,3vw,34px) clamp(22px,3vw,36px); display:flex; align-items:center; flex-wrap:wrap; gap:clamp(22px,3vw,36px);">
+      <div style="flex:0 0 auto; width:clamp(104px,14vw,150px); height:clamp(104px,14vw,150px); border-radius:50%; overflow:hidden; background:#EADCC5; display:flex; align-items:center; justify-content:center;">
+        <svg viewBox="0 0 120 120" width="100%" height="100%" role="img" aria-label="Bilde kommer" style="display:block;">
+          <rect width="120" height="120" fill="#EADCC5"/>
+          <circle cx="60" cy="60" r="34" fill="none" stroke="#C08A63" stroke-width="2.5" stroke-dasharray="6 7"/>
+          <path d="M52 74V50l22-5v6l-16 3.6V70" fill="none" stroke="#9A5A3E" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="49" cy="75" r="5.6" fill="#9A5A3E"/>
+          <circle cx="71" cy="70" r="5.6" fill="#9A5A3E"/>
+        </svg>
+      </div>
+      <div style="flex:1 1 300px; min-width:0;">
+        <div style="display:flex; align-items:center; flex-wrap:wrap; gap:4px 10px; color:#9A5A3E; font-weight:600; font-size:0.9rem; margin-bottom:12px;">
+          <span>Tirsdag 22. september</span><span style="opacity:0.4;">·</span><span>Kl. 20:00–20:30</span><span style="opacity:0.4;">·</span><span>Kommandør T. I. Øgrims plass 4</span>
+        </div>
+        <h3 style="font-family:'Newsreader',serif; font-weight:500; font-size:clamp(1.5rem,2.4vw,1.95rem); line-height:1.12; letter-spacing:-0.01em; text-wrap:balance;">Minikonsert med Øystein Greni</h3>
+      </div>
+    </div>
   </section>
 
   <!-- ===== PÅMELDING ===== -->
@@ -2049,6 +2071,7 @@ class Component extends DCLogic {
       },
       {
         tag: 'Foredrag', badgeBg: '#71806A', badgeInk: '#FBF4E7',
+        tag2: 'Minikonsert',
         date: 'Tirsdag 22. september',
         time: 'Kl. 18:00–19:30', place: 'Kommandør T. I. Øgrims plass 4',
         title: 'Ungdom først – hvorfor inkluderende byrom betyr noe',
@@ -2084,4 +2107,4 @@ class Component extends DCLogic {
 </body>
 </html>
 
-<!-- kildesignatur: a77e176891125936 -->
+<!-- kildesignatur: cf9da6ca7323dc87 -->
