@@ -128,14 +128,14 @@
             <!-- Bare arrangement 2 har disse feltene. sc-if gjør at kort uten
                  dem ikke får en tom ramme. -->
             <sc-if value="{{ ev.servering }}" hint-placeholder-val="{{ true }}">
-              <div style="margin-top:20px; padding:14px 16px; background:#F6E8D8; border:1px solid #E4D6C0; border-radius:14px;">
+              <div style="margin-top:auto; padding:14px 16px; background:#F6E8D8; border:1px solid #E4D6C0; border-radius:14px;">
                 <p style="color:#9A5A3E; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; font-size:0.72rem; margin-bottom:8px;">Servering</p>
                 <p style="color:#5C4E43; font-size:0.98rem; line-height:1.6;">{{ ev.servering }}</p>
               </div>
             </sc-if>
 
             <sc-if value="{{ ev.medvirkende }}" hint-placeholder-val="{{ true }}">
-              <div style="margin-top:20px; padding-top:18px; border-top:1px solid #E4D6C0;">
+              <div style="margin-top:auto; padding:14px 16px; background:#F6E8D8; border:1px solid #E4D6C0; border-radius:14px;">
                 <p style="color:#9A5A3E; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; font-size:0.72rem; margin-bottom:8px;">{{ ev.medvirkendeTittel }}</p>
                 <p style="color:#5C4E43; font-size:0.98rem; line-height:1.6;">{{ ev.medvirkende }}</p>
               </div>
@@ -360,7 +360,7 @@ class Component extends DCLogic {
         title: 'Ungdom først – hvorfor inkluderende byrom betyr noe',
         desc: 'Hvordan kan inkluderende møteplasser skape trygghet, fellesskap og bedre byliv? Ungdom blir ofte glemt i byutvikling, selv om de trenger trygge steder å være. Samtale og foredrag i samarbeid med Centrum Tigers og Höegh Eiendom.',
         medvirkendeTittel: 'Du møter',
-        medvirkende: 'Marco Elsafadi — foredragsholder, tidligere toppidrettsutøver og ungdomsarbeider, og vinner av Mesternes Mester i 2014 — deler innsikt om fellesskap og inkludering. Basketballspillerne Julie McCarthy og Shiba Ahmadi forteller om tilhørighet gjennom idrett. Alle tre fra Centrum Tigers.',
+        medvirkende: 'Marco Elsafadi — ungdomsarbeider, tidligere toppidrettsutøver og vinner av Mesternes Mester. Med basketballspillerne Julie McCarthy og Shiba Ahmadi fra Centrum Tigers.',
         img: 'assets/marco.jpg', imgPos: 'center 16%',
       },
     ];
