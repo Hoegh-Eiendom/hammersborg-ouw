@@ -46,7 +46,7 @@ VENDOR = ROOT / "vendor"
 WEB_UT = ROOT / "index.html"
 STANDALONE_UT = ROOT / "hammersborg-standalone.html"
 
-BASE_URL = "https://hammersborg.netlify.app"
+BASE_URL = "https://hammersborgkvartalet.no"
 TITLE = "Hammersborgkvartalet – Oslo Urban Week"
 BESKRIVELSE = ("Bli med på nabolagstreff og foredrag i Hammersborgkvartalet under "
                "Oslo Urban Week, tirsdag 22. september. Gratis, med mulighet for "
@@ -105,7 +105,10 @@ def data_uri(raw, mime):
 def signatur():
     """Hash av alt som påvirker resultatet."""
     h = hashlib.sha256()
-    for f in (SRC, SUPPORT):
+    # build.py er med fordi verdier her — BASE_URL, TITLE, BESKRIVELSE — havner
+    # i resultatet. Uten den ville en endret BASE_URL gitt uendret signatur, og
+    # --check ville meldt OK på filer bygget med gammel adresse.
+    for f in (SRC, SUPPORT, Path(__file__)):
         h.update(f.read_bytes())
     for f in sorted(ASSETS_WEB.iterdir()):
         if not f.name.startswith("."):

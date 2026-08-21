@@ -3,7 +3,7 @@
 Nabolags-onepager for **Hammersborgkvartalet** under Oslo Urban Week
 (22. september, Storsalen på Tempelet). Målet er påmelding til de to arrangementene.
 
-Eier: Höegh Eiendom · Publisert: https://hammersborg.netlify.app/
+Eier: Höegh Eiendom · Publisert: https://hammersborgkvartalet.no/
 
 Netlify deployer automatisk fra `main`. Pusher du, går det rett ut.
 
@@ -44,7 +44,7 @@ Sier fra om filene på disk er bygget fra gjeldende kilde. Gir exitkode 1 hvis
 noe er utdatert, så den kan brukes i et skript.
 
 Bygget skriver en kildesignatur nederst i begge filene. `--check` sammenligner
-den med en hash av kilden, support.js og innholdet i `assets-web/`.
+den med en hash av kilden, support.js, build.py og innholdet i `assets-web/`.
 
 ### To ting som gjør bygget forutsigbart
 
@@ -102,7 +102,7 @@ prøver å laste dem før runtime-en rekker å fylle inn malen.
 ## Publisering
 
 Netlify bygger fra `main` og serverer repo-rota. Push til `main` går rett ut på
-https://hammersborg.netlify.app/ — ingen manuell publisering.
+https://hammersborgkvartalet.no/ — ingen manuell publisering.
 
 Fordi rota serveres, ville alt i repoet vært offentlig lesbart. `netlify.toml`
 skjermer `docs/`, `src/`, `build.py`, `README.md` og `assets/`.
