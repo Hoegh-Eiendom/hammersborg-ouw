@@ -1959,19 +1959,22 @@
         </div>
       </div>
 
-      <!-- To rader: samarbeidspartner og bidragsytere. Logoene er
-           svart-på-hvitt uten alfakanal, så de ville blitt hvite bokser på den
-           beige flaten. mix-blend-mode:multiply gjør hvitt usynlig.
-           Ulik høyde med vilje: FutureBuilt er et stablet ordmerke, Henning
-           Larsen et bredt — like høyder gjør FutureBuilt visuelt for liten. -->
-      <div style="display:flex; align-items:center; flex-wrap:wrap; gap:14px 34px; margin-top:26px;">
-        <p style="color:#7A6A59; font-size:0.78rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; margin:0; flex:0 0 auto;">I samarbeid med</p>
-        <img loading="lazy" decoding="async" src="assets-web/logo-futurebuilt.png" alt="FutureBuilt" style="height:72px; width:auto; display:block; mix-blend-mode:multiply;">
-      </div>
-
-      <div style="display:flex; align-items:center; flex-wrap:wrap; gap:14px 34px; margin-top:22px; padding-top:22px; border-top:1px solid rgba(122,106,89,0.22);">
-        <p style="color:#7A6A59; font-size:0.78rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; margin:0; flex:0 0 auto;">Bidragsytere</p>
-        <img loading="lazy" decoding="async" src="assets-web/logo-henning-larsen.jpg" alt="Henning Larsen" style="height:40px; width:auto; display:block; mix-blend-mode:multiply;">
+      <!-- Én rad med to grupper: samarbeidspartner og bidragsytere. Hver
+           gruppe er en egen flex-boks, så etiketten holder seg til sine egne
+           logoer når raden brytes på smale skjermer.
+           Logoene er svart-på-hvitt uten alfakanal, så de ville blitt hvite
+           bokser på den beige flaten. mix-blend-mode:multiply gjør hvitt
+           usynlig. Ulik høyde med vilje: FutureBuilt er et stablet ordmerke,
+           Henning Larsen et bredt — like høyder gjør FutureBuilt for liten. -->
+      <div style="display:flex; align-items:center; flex-wrap:wrap; gap:20px 56px; margin-top:26px;">
+        <div style="display:flex; align-items:center; flex-wrap:wrap; gap:12px 24px;">
+          <p style="color:#7A6A59; font-size:0.78rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; margin:0; flex:0 0 auto;">I samarbeid med</p>
+          <img loading="lazy" decoding="async" src="assets-web/logo-futurebuilt.png" alt="FutureBuilt" style="height:72px; width:auto; display:block; mix-blend-mode:multiply;">
+        </div>
+        <div style="display:flex; align-items:center; flex-wrap:wrap; gap:12px 24px;">
+          <p style="color:#7A6A59; font-size:0.78rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; margin:0; flex:0 0 auto;">Bidragsytere</p>
+          <img loading="lazy" decoding="async" src="assets-web/logo-henning-larsen.jpg" alt="Henning Larsen" style="height:40px; width:auto; display:block; mix-blend-mode:multiply;">
+        </div>
       </div>
 
       <!-- Ingen ramme, men større sats enn brødteksten ellers, så blokka
@@ -2180,4 +2183,4 @@ class Component extends DCLogic {
 </body>
 </html>
 
-<!-- kildesignatur: c8ee1aed9bb63e39 -->
+<!-- kildesignatur: 190a54fc4ae73912 -->
