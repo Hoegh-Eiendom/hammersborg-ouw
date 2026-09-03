@@ -1887,6 +1887,16 @@
         <p style="color:#5C4E43; font-size:1.02rem; line-height:1.6; margin-top:12px;">Storsalen er ikke et tilfeldig konsertlokale. Her spilte Bigbang inn albumet <em>Le Californie</em>, og Øystein Greni har trukket fram akustikken i rommet som en avgjørende del av lyden på plata. Madrugada, Sivert Høyem og Jarle Bernhoft har også gjort opptak her. Nå kommer Greni tilbake.</p>
       </div>
     </div>
+
+    <!-- Ingen ramme, men større sats enn kortene over, så blokka leser som en
+         egen historie og ikke som et fjerde arrangement. Spireverket-logoen har
+         alfakanal, så ingen mix-blend-mode trengs. -->
+    <div style="margin-top:clamp(44px,5vw,68px);">
+      <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(1.7rem,3vw,2.6rem); line-height:1.06; letter-spacing:-0.01em; margin-bottom:18px; text-wrap:balance;">Fra ungdommens ideer til nye møteplasser</h3>
+      <p style="color:#5C4E43; font-size:15px; line-height:1.6; max-width:88ch;">Elever ved Edvard Munch VGS har utviklet modeller og ideer til nye minglemøbler på Kommandør T. I. Øgrims plass. Nå tar Spireverket ideene videre og bygger møbler til plassen, med mål om å skape en hyggeligere møteplass til glede for naboer og nabolaget.</p>
+      <p style="color:#5C4E43; font-size:15px; line-height:1.6; max-width:88ch; margin-top:12px;">Spireverket er en arbeidsplass og arbeidstreningsarena for unge voksne. Vi har fokus på kompetanseheving og nettverksbygging gjennom praktisk arbeid og håndverk.</p>
+      <img loading="lazy" decoding="async" src="assets-web/logo-spireverket.png" alt="Spireverket — et sted for samskapelse og vekst" style="height:clamp(96px,12vw,140px); width:auto; display:block; margin-top:26px;">
+    </div>
   </section>
 
   <!-- ===== PÅMELDING ===== -->
@@ -1966,24 +1976,19 @@
            bokser på den beige flaten. mix-blend-mode:multiply gjør hvitt
            usynlig. Ulik høyde med vilje: FutureBuilt er et stablet ordmerke,
            Henning Larsen et bredt — like høyder gjør FutureBuilt for liten. -->
-      <div style="display:flex; align-items:center; flex-wrap:wrap; gap:20px 56px; margin-top:26px;">
-        <div style="display:flex; align-items:center; flex-wrap:wrap; gap:12px 24px;">
+      <div style="display:flex; align-items:center; flex-wrap:wrap; gap:24px 72px; margin-top:26px;">
+        <div style="display:flex; align-items:center; flex-wrap:wrap; gap:16px 40px;">
           <p style="color:#7A6A59; font-size:0.78rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; margin:0; flex:0 0 auto;">I samarbeid med</p>
           <img loading="lazy" decoding="async" src="assets-web/logo-futurebuilt.png" alt="FutureBuilt" style="height:72px; width:auto; display:block; mix-blend-mode:multiply;">
         </div>
-        <div style="display:flex; align-items:center; flex-wrap:wrap; gap:12px 24px;">
+        <div style="display:flex; align-items:center; flex-wrap:wrap; gap:16px 40px;">
           <p style="color:#7A6A59; font-size:0.78rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; margin:0; flex:0 0 auto;">Bidragsytere</p>
           <img loading="lazy" decoding="async" src="assets-web/logo-henning-larsen.jpg" alt="Henning Larsen" style="height:40px; width:auto; display:block; mix-blend-mode:multiply;">
           <img loading="lazy" decoding="async" src="assets-web/logo-byantropologene.png" alt="Byantropologene" style="height:52px; width:auto; display:block;">
+          <img loading="lazy" decoding="async" src="assets-web/logo-oslo-kommune.svg" alt="Oslo kommune" style="height:62px; width:auto; display:block;">
         </div>
       </div>
 
-      <!-- Ingen ramme, men større sats enn brødteksten ellers, så blokka
-           skiller seg fra kortet over uten å konkurrere med det. -->
-      <div style="margin-top:clamp(40px,5vw,64px);">
-        <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(1.7rem,3vw,2.6rem); line-height:1.06; letter-spacing:-0.01em; margin-bottom:18px; text-wrap:balance;">Fra ungdommens ideer til nye møteplasser</h3>
-        <p style="color:#5C4E43; font-size:15px; line-height:1.6;">Elever ved Edvard Munch VGS har utviklet modeller og ideer til nye minglemøbler på Kommandør T. I. Øgrims plass. Nå tar Spireverket ideene videre og bygger møbler til plassen, med mål om å skape en hyggeligere møteplass til glede for naboer og nabolaget.</p>
-      </div>
     </div>
   </section>
 
@@ -2160,7 +2165,6 @@ class Component extends DCLogic {
     ];
 
 
-
     const features = [
       { title: 'Passasjen', img: 'assets-web/img07.jpg', desc: 'En ny passasje gjennom kvartalet — fra Akersgata til Kommandør T. I. Øgrims plass.' },
       { title: 'Møteplasser', img: 'assets-web/moteplasser.jpg', desc: 'Et felles innvendig torg — kvartalets knutepunkt, og et sted å slå seg ned enten du bor i nabolaget eller jobber her.' },
@@ -2184,4 +2188,4 @@ class Component extends DCLogic {
 </body>
 </html>
 
-<!-- kildesignatur: 7a46b4cccbdd1430 -->
+<!-- kildesignatur: 8e2c8b11a1a4be7d -->
