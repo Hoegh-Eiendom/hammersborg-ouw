@@ -1890,13 +1890,18 @@
 
     <!-- Samme flate, kant og radius som kortene over, men i full bredde og med
          større overskrift — så den leser som en egen historie, ikke som et
-         fjerde arrangement. Spireverket-logoen har alfakanal, så ingen
-         mix-blend-mode trengs. -->
-    <div style="margin-top:clamp(44px,5vw,68px); background:#FBF5EA; border:1px solid #E4D6C0; border-radius:22px; padding:clamp(26px,3.2vw,38px) clamp(22px,3vw,36px);">
-      <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(1.7rem,3vw,2.6rem); line-height:1.06; letter-spacing:-0.01em; margin-bottom:18px; text-wrap:balance;">Fra ungdommens ideer til nye møteplasser</h3>
-      <p style="color:#5C4E43; font-size:15px; line-height:1.6; max-width:88ch;">Elever ved Edvard Munch VGS har utviklet modeller og ideer til nye minglemøbler på Kommandør T. I. Øgrims plass. Nå tar Spireverket ideene videre og bygger møbler til plassen, med mål om å skape en hyggeligere møteplass til glede for naboer og nabolaget.</p>
-      <p style="color:#5C4E43; font-size:15px; line-height:1.6; max-width:88ch; margin-top:12px;">Spireverket er en arbeidsplass og arbeidstreningsarena for unge voksne. Vi har fokus på kompetanseheving og nettverksbygging gjennom praktisk arbeid og håndverk.</p>
-      <img loading="lazy" decoding="async" src="assets-web/logo-spireverket.png" alt="Spireverket — et sted for samskapelse og vekst" style="height:clamp(96px,12vw,140px); width:auto; display:block; margin-top:26px;">
+         fjerde arrangement. Samme venstrekolonne som Maya-kortet under:
+         logo til venstre, tekst til høyre, og stabling på smal skjerm.
+         Spireverket-logoen har alfakanal, så ingen mix-blend-mode trengs.
+         Bredde- og ikke høydestyrt størrelse, så kolonnen holder seg stabil
+         uansett hva som endres i teksten. -->
+    <div style="margin-top:clamp(44px,5vw,68px); background:#FBF5EA; border:1px solid #E4D6C0; border-radius:22px; padding:clamp(26px,3.2vw,38px) clamp(22px,3vw,36px); display:flex; align-items:center; flex-wrap:wrap; gap:28px 40px;">
+      <img loading="lazy" decoding="async" src="assets-web/logo-spireverket.png" alt="Spireverket — et sted for samskapelse og vekst" style="flex:0 0 auto; width:clamp(160px,20vw,230px); height:auto; display:block;">
+      <div style="flex:1 1 320px; min-width:0;">
+        <h3 style="font-family:'Newsreader',serif; font-weight:400; font-size:clamp(1.7rem,3vw,2.6rem); line-height:1.06; letter-spacing:-0.01em; margin-bottom:18px; text-wrap:balance;">Fra ungdommens ideer til nye møteplasser</h3>
+        <p style="color:#5C4E43; font-size:15px; line-height:1.6;">Elever ved Edvard Munch VGS har utviklet modeller og ideer til nye minglemøbler på Kommandør T. I. Øgrims plass. Nå tar Spireverket ideene videre og bygger møbler til plassen, med mål om å skape en hyggeligere møteplass til glede for naboer og nabolaget.</p>
+        <p style="color:#5C4E43; font-size:15px; line-height:1.6; margin-top:12px;">Spireverket er en arbeidsplass og arbeidstreningsarena for unge voksne. Vi har fokus på kompetanseheving og nettverksbygging gjennom praktisk arbeid og håndverk.</p>
+      </div>
     </div>
   </section>
 
@@ -2189,4 +2194,4 @@ class Component extends DCLogic {
 </body>
 </html>
 
-<!-- kildesignatur: 0d52f63d3d8e1edb -->
+<!-- kildesignatur: ae5ed7a8264f50eb -->
